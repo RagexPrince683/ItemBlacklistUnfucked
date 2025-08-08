@@ -55,7 +55,7 @@ public class GlobalBanList
         else
         {
             worldInstance = new GlobalBanList();
-            ItemBlacklist.getLogger().warn("No config file present.");
+            ItemBlacklist.logger.warn("No config file present.");
         }
         worldInstance.file = file;
 
