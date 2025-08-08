@@ -1,9 +1,11 @@
 package net.doubledoordev.itemblacklist.util;
 
+import net.doubledoordev.itemblacklist.Helper;
+import net.doubledoordev.itemblacklist.ItemBlacklist;
+import net.doubledoordev.itemblacklist.data.GlobalBanList;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentString;
@@ -15,10 +17,6 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-
-import net.doubledoordev.itemblacklist.Helper;
-import net.doubledoordev.itemblacklist.ItemBlacklist;
-import net.doubledoordev.itemblacklist.data.GlobalBanList;
 
 /**
  * @author Dries007
@@ -115,7 +113,6 @@ public class ServerEventHandlers
             if (event.isCancelable())
                 event.setCanceled(true);
             GlobalBanList.process(player.dimension, player.inventory);
-            ((EntityPlayerMP) player).sendContainerToPlayer(player.inventoryContainer);
         }
     }
 
@@ -123,11 +120,7 @@ public class ServerEventHandlers
     public void changeDimension(PlayerEvent.PlayerChangedDimensionEvent event)
     {
         if (!Helper.shouldCare(event.player)) return;
-        {
-            GlobalBanList.process(event.toDim, event.player.inventory);
-            ((EntityPlayerMP) event.player).sendContainerToPlayer(event.player.inventoryContainer);
-        }
-
+        GlobalBanList.process(event.toDim, event.player.inventory);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
