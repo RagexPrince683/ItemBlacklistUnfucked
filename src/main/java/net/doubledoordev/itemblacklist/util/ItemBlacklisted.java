@@ -77,13 +77,16 @@ public class ItemBlacklisted extends Item
     }
 
     @SideOnly(Side.CLIENT)
-    public IIcon getIcon(ItemStack stack, int pass)
-    {
-        if (canUnpack(stack) && pass == 0)
-        {
+    public IIcon getIcon(ItemStack stack, int pass) {
+        if (canUnpack(stack) && pass == 0) {
             try {
-                //AHHHH YESSS LETS JUST NOT ADD A TRY CASE HERE
                 ItemStack unpack = unpack(stack);
+
+                // Prevent infinite recursion if unpack is the same item
+                if (unpack.getItem() == this) {
+                    return itemIconError; // or a fallback icon
+                }
+
                 if (unpack.getItemSpriteNumber() == this.getSpriteNumber()) {
                     IIcon icon = unpack.getItem().getIcon(unpack, 0);
                     if (icon != null) return icon;
