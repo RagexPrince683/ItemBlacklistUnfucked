@@ -81,12 +81,16 @@ public class ItemBlacklisted extends Item
     {
         if (canUnpack(stack) && pass == 0)
         {
-            ItemStack unpack = unpack(stack);
-            if (unpack.getItemSpriteNumber() == this.getSpriteNumber())
-            {
-                IIcon icon = unpack.getItem().getIcon(unpack, 0);
-                if (icon != null) return icon;
-                else return itemIconError;
+            try {
+                //AHHHH YESSS LETS JUST NOT ADD A TRY CASE HERE
+                ItemStack unpack = unpack(stack);
+                if (unpack.getItemSpriteNumber() == this.getSpriteNumber()) {
+                    IIcon icon = unpack.getItem().getIcon(unpack, 0);
+                    if (icon != null) return icon;
+                    else return itemIconError;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return itemIcon;
