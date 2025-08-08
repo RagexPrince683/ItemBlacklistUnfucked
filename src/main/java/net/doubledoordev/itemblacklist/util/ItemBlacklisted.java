@@ -1,7 +1,6 @@
 package net.doubledoordev.itemblacklist.util;
 
 import net.doubledoordev.itemblacklist.Helper;
-import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -41,7 +40,7 @@ public class ItemBlacklisted extends Item
         ItemStack out = null;
         try
         {
-            out = new ItemStack(in.getTagCompound().getCompoundTag("item"));
+            out = ItemStack.loadItemStackFromNBT(in.getTagCompound().getCompoundTag("item"));
         }
         catch (Exception e)
         {
