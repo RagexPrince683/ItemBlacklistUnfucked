@@ -3,23 +3,23 @@ package net.doubledoordev.itemblacklist.data;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.gson.*;
+import cpw.mods.fml.common.Loader;
 import net.doubledoordev.itemblacklist.Helper;
 import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.util.ItemBlacklisted;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.fml.common.Loader;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 import static net.doubledoordev.itemblacklist.Helper.MODID;
@@ -37,9 +37,9 @@ public class GlobalBanList
     private BanList global = new BanList(GLOBAL_NAME);
     private File file;
 
-    public static void init(MinecraftServer server)
+    public static void init()
     {
-        File file = new File(server.worldServers[0].getSaveHandler().getWorldDirectory(), MODID.concat(".json"));
+        File file = new File(MinecraftServer.getServer().worldServers[0].getSaveHandler().getWorldDirectory(), MODID.concat(".json"));
         if (file.exists())
         {
             try
@@ -114,7 +114,8 @@ public class GlobalBanList
     public static int process(int dim, Container container, EntityPlayer player, boolean unpackOnly)
     {
         int count = 0;
-        for (Slot slot : container.inventorySlots)
+        //noinspection unchecked
+        for (Slot slot : (List<Slot>) container.inventorySlots)
         {
             if (!slot.canTakeStack(player)) continue;
             ItemStack oldStack = slot.getStack();
@@ -127,15 +128,7 @@ public class GlobalBanList
             else
             {
                 slot.putStack(null);
-                if (!player.inventory.addItemStackToInventory(newStack) || newStack.stackSize > 0)
-                {
-                    EntityItem entityitem = player.dropItem(newStack, false);
-                    if (entityitem != null)
-                    {
-                        entityitem.setNoPickupDelay();
-                        entityitem.setOwner(player.getName());
-                    }
-                }
+                player.dropPlayerItemWithRandomChoice(newStack, false);
             }
             count++;
         }
