@@ -1,73 +1,68 @@
 buildscript {
     repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        maven { url = 'https://plugins.gradle.org/m2' }
         mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {changing = true}
     }
 }
 
 apply plugin: 'forge'
 
-version = "1.2.0"
-if (System.getenv().BUILD_NUMBER != null) version += "." + System.getenv().BUILD_NUMBER
 
-targetCompatibility = 1.7
-sourceCompatibility = 1.7
+//sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
-group= "net.doubledoordev.itemblacklist"
-archivesBaseName = "ItemBlacklist"
 
-minecraft {
-    version = "1.7.10-10.13.4.1558-1.7.10"
-    runDir = "jars"
+apply plugin: 'forge'
+
+// === Define mod metadata here ===
+ext {
+    mod_version = "1.2.0"
+    mod_group = "com.itemblacklist"    // change this to your package
+    mod_archiveBaseName = "ItemBlacklistUnfucked"
+    mc_version = "1.7.10"
 }
 
-processResources
-{
-    // replace stuff in mcmod.info, nothing else
+version = mod_version
+group = mod_group
+archivesBaseName = mod_archiveBaseName
+
+minecraft {
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "eclipse"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "forge"
+        url = "https://maven.minecraftforge.net"
+    }
+}
+
+dependencies {
+    // Example: If you depend on other mods/libs, add them here
+    // compile files("libs/somelib.jar")
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
-        // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version': project.version, 'mcversion': project.minecraft.version
     }
-        
-    // copy everything else, thats not the mcmod.info
+
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
 }
 
-task sourcesJar(type: Jar) {
-    from "LICENSE.txt"
-    from sourceSets.main.allSource
-    classifier = 'src'
-    appendix = project.minecraft.version
-}
-
-task deobfJar(type: Jar) {
-    from "LICENSE.txt"
-    from sourceSets.main.output
-	classifier = 'dev'
-    appendix = project.minecraft.version
-}
-
-jar {
-    from "LICENSE.txt"
-	exclude("com/**")
-    appendix = project.minecraft.version
-}
-
-artifacts {
-    archives sourcesJar
-    archives deobfJar
+tasks.withType(JavaCompile) {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    options.encoding = 'UTF-8'
 }
