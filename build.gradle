@@ -1,68 +1,56 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net/' }
-        maven { url = 'https://plugins.gradle.org/m2' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {changing = true}
-    }
+plugins {
+    id 'com.gtnewhorizons.gtnhconvention'
 }
 
-apply plugin: 'forge'
-
-
-//sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
-
-
-apply plugin: 'forge'
-
-// === Define mod metadata here ===
-ext {
-    mod_version = "1.2.0"
-    mod_group = "com.itemblacklist"    // change this to your package
-    mod_archiveBaseName = "ItemBlacklistUnfucked"
-    mc_version = "1.7.10"
+version = modVersion
+group = modGroup
+base {
+    archivesName = archiveBaseName
 }
 
-version = mod_version
-group = mod_group
-archivesBaseName = mod_archiveBaseName
-
-minecraft {
-    version = "1.7.10-10.13.4.1614-1.7.10"
-    runDir = "eclipse"
+def productionDevMods = fileTree('devmods') {
+    include '*.jar'
 }
+def deobfDevMods = fileTree('devmods/deobf') {
+    include '*.jar'
+}
+def remappedDevModsDirectory = file("$buildDir/devmods/remapped")
 
-repositories {
-    mavenCentral()
-    maven {
-        name = "forge"
-        url = "https://maven.minecraftforge.net"
+configurations {
+    remappedDevMods {
+        canBeConsumed = false
+        canBeResolved = true
+        transitive = false
     }
 }
 
 dependencies {
-    // Example: If you depend on other mods/libs, add them here
-    // compile files("libs/somelib.jar")
+    // Production (SRG-named) mods must be remapped before entering the MCP workspace.
+    remappedDevMods rfg.deobf(productionDevMods)
+
+    // These dependencies are intentionally development-only and are never published.
+    devOnlyNonPublishable fileTree(dir: remappedDevModsDirectory, include: '*.jar').builtBy('prepareDevMods')
+    devOnlyNonPublishable deobfDevMods
 }
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version': project.version, 'mcversion': project.minecraft.version
-    }
-
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+tasks.register('prepareDevMods', Sync) {
+    description = 'Remaps production devmods into the MCP development namespace.'
+    group = 'ide'
+    from configurations.remappedDevMods
+    into remappedDevModsDirectory
 }
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
+    dependsOn tasks.named('prepareDevMods')
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
     options.encoding = 'UTF-8'
+}
+
+tasks.named('runClient') {
+    dependsOn tasks.named('prepareDevMods')
+}
+
+tasks.named('runServer') {
+    dependsOn tasks.named('prepareDevMods')
 }
