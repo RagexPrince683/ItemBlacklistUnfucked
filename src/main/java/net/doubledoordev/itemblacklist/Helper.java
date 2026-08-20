@@ -2,6 +2,7 @@ package net.doubledoordev.itemblacklist;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonParser;
 import net.doubledoordev.itemblacklist.data.BanList;
 import net.doubledoordev.itemblacklist.data.BanListEntry;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
@@ -22,6 +23,7 @@ public class Helper
             .registerTypeHierarchyAdapter(BanListEntry.class, new BanListEntry.Json())
             .registerTypeHierarchyAdapter(GlobalBanList.class, new GlobalBanList.Json())
             .create();
+    public static final JsonParser GSON_PARSER = new JsonParser();
 
     private Helper()
     {

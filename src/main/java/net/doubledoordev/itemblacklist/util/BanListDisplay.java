@@ -3,6 +3,7 @@ package net.doubledoordev.itemblacklist.util;
 import net.doubledoordev.itemblacklist.data.BanList;
 import net.doubledoordev.itemblacklist.data.BanListEntry;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
+import net.doubledoordev.itemblacklist.data.SpecialRuleList;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
@@ -30,6 +31,8 @@ public final class BanListDisplay
     public static void displayAll(ICommandSender sender)
     {
         display(sender, collectAll(GlobalBanList.worldInstance), collectAll(GlobalBanList.packInstance));
+        displaySpecial(sender, SpecialRuleList.placementOnly.allLists(), SpecialRuleList.craftingOnly.allLists(),
+                SpecialRuleList.craftAllow.allLists());
     }
 
     public static void displayGlobal(ICommandSender sender)
@@ -39,6 +42,13 @@ public final class BanListDisplay
         Set<BanList> pack = new HashSet<>();
         if (GlobalBanList.packInstance != null) pack.add(GlobalBanList.packInstance.getGlobal());
         display(sender, world, pack);
+        Set<BanList> placement = new HashSet<>();
+        placement.add(SpecialRuleList.placementOnly.getGlobal());
+        Set<BanList> crafting = new HashSet<>();
+        crafting.add(SpecialRuleList.craftingOnly.getGlobal());
+        Set<BanList> allow = new HashSet<>();
+        allow.add(SpecialRuleList.craftAllow.getGlobal());
+        displaySpecial(sender, placement, crafting, allow);
     }
 
     public static void displayDimension(ICommandSender sender, int dimension)
@@ -47,6 +57,17 @@ public final class BanListDisplay
         Set<BanList> pack = GlobalBanList.packInstance == null ? new HashSet<BanList>()
                 : new HashSet<>(GlobalBanList.packInstance.dimesionMap.get(dimension));
         display(sender, world, pack);
+        displaySpecial(sender, SpecialRuleList.placementOnly.listsForDimension(dimension),
+                SpecialRuleList.craftingOnly.listsForDimension(dimension),
+                SpecialRuleList.craftAllow.listsForDimension(dimension));
+    }
+
+    private static void displaySpecial(ICommandSender sender, Set<BanList> placement,
+            Set<BanList> crafting, Set<BanList> allow)
+    {
+        displaySection(sender, "Placement-only bans:", "No placement-only bans.", placement, false);
+        displaySection(sender, "Crafting-only bans:", "No crafting-only bans.", crafting, false);
+        displaySection(sender, "Banned-item crafting exceptions:", "No banned-item crafting exceptions.", allow, false);
     }
 
     private static Set<BanList> collectAll(GlobalBanList source)

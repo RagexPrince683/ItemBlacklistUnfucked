@@ -81,6 +81,7 @@ public class GlobalBanList
         {
             packInstance = null;
         }
+        SpecialRuleList.init();
     }
 
     public void save()
