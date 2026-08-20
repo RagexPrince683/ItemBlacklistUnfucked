@@ -48,9 +48,10 @@ public class ItemBlacklist
 
         Configuration configuration = new Configuration(event.getSuggestedConfigurationFile());
 
-        message = configuration.getString("message", CATEGORY_GENERAL, "Now is not the time to use that. ~Prof. Oak", "The message you get when using an item that is banned.");
+        message = configuration.getString("message", CATEGORY_GENERAL, "This item is currently banned. If you have questions ask a administrator for further questions.", "The message you get when using an item that is banned.");
         log = configuration.getBoolean("log", CATEGORY_GENERAL, false, "Log every instance of any banned item used. (SPAM WARNING!)");
-        unpack4all = configuration.getBoolean("unpack4all", CATEGORY_GENERAL, true, "Let everyone unpack items by using the 'unpack' command. So items can be used in crafting.");
+        //why the fuck?
+        unpack4all = configuration.getBoolean("unpack4all", CATEGORY_GENERAL, false, "Let everyone unpack items by using the 'unpack' command. So items can be used in crafting.");
 
         if (configuration.hasChanged()) configuration.save();
     }
