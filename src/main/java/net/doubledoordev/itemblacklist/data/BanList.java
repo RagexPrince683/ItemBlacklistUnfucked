@@ -8,6 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.lang.reflect.Type;
+import java.time.Instant;
+import java.util.Iterator;
 
 /**
  * @author Dries007
@@ -30,8 +32,25 @@ public class BanList
 
     public boolean isBanned(ItemStack itemStack)
     {
-        for (BanListEntry banListEntry : banListEntryMap.get(itemStack.getItem())) if (banListEntry.isBanned(itemStack.getItemDamage())) return true;
+        Instant now = Instant.now();
+        for (BanListEntry banListEntry : banListEntryMap.get(itemStack.getItem()))
+            if (!banListEntry.isExpired(now) && banListEntry.isBanned(itemStack.getItemDamage())) return true;
         return false;
+    }
+
+    public int removeExpired(Instant now)
+    {
+        int removed = 0;
+        Iterator<BanListEntry> iterator = banListEntryMap.values().iterator();
+        while (iterator.hasNext())
+        {
+            if (iterator.next().isExpired(now))
+            {
+                iterator.remove();
+                removed++;
+            }
+        }
+        return removed;
     }
 
     public int[] getDimIds()

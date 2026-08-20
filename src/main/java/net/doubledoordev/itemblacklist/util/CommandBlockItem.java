@@ -21,6 +21,18 @@ import net.minecraftforge.oredict.OreDictionary;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.time.DateTimeException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static net.minecraft.util.EnumChatFormatting.*;
 
@@ -29,6 +41,21 @@ import static net.minecraft.util.EnumChatFormatting.*;
  */
 public class CommandBlockItem extends CommandBase
 {
+    private static final Pattern DURATION_PART = Pattern.compile("(\\d+)([ydhms])", Pattern.CASE_INSENSITIVE);
+    private static final Pattern DATE = Pattern.compile("(\\d{2})-(\\d{2})-(\\d{4})");
+    private static final Pattern TIME = Pattern.compile("(\\d{1,2})(?::(\\d{2}))?([ap]m)", Pattern.CASE_INSENSITIVE);
+    private static final DateTimeFormatter DISPLAY_TIME = DateTimeFormatter.ofPattern("MM-dd-yyyy hh:mm a z", Locale.US);
+
+    private static class Schedule
+    {
+        private final Instant expiresAt;
+        private final String duration;
+        private Schedule(Instant expiresAt, String duration)
+        {
+            this.expiresAt = expiresAt;
+            this.duration = duration;
+        }
+    }
     public static class Pair<K, V>
     {
         public K k;
@@ -69,8 +96,9 @@ public class CommandBlockItem extends CommandBase
             sender.addChatMessage(makeHelpText("pack [player]", "Lock banned items in targets inventory."));
             sender.addChatMessage(makeHelpText("unpack [player]", "Unlock banned items in targets inventory."));
             sender.addChatMessage(makeHelpText("list [dim|player]", "List banned items of all, player, or dim"));
-            sender.addChatMessage(makeHelpText("ban [dim list] [item[:*|meta]]", "Ban an item; a held item bans all metadata variants."));
-            sender.addChatMessage(makeHelpText("meta [dim list]", "Ban only the held metadata variant (for example, one dye color)."));
+            sender.addChatMessage(makeHelpText("ban [dim] [item] [timer <duration>|date <MM-dd-yyyy> <time>]", "Ban wildcard metadata; no schedule is permanent."));
+            sender.addChatMessage(makeHelpText("meta [dim] [timer <duration>|date <MM-dd-yyyy> <time>]", "Ban the exact held metadata; no schedule is permanent."));
+            sender.addChatMessage(makeHelpText("timers", "y years, d days, h hours, m minutes, s seconds (example: 1d12h)."));
             sender.addChatMessage(makeHelpText("unban [dim list] [item[:*|meta]]", "Unban an item."));
             sender.addChatMessage(makeHelpText("unmeta [dim list]", "Unban only the held metadata variant."));
             return;
@@ -83,6 +111,7 @@ public class CommandBlockItem extends CommandBase
                 throw new WrongUsageException("Unknown subcommand. Use '/blockitem' to get some help.");
             case "reload":
                 GlobalBanList.init();
+                ServerEventHandlers.refreshOnlinePlayers();
                 // No break
                 sender.addChatMessage(new ChatComponentText("Reloaded!").setChatStyle(new ChatStyle().setColor(GREEN)));
             case "list":
@@ -98,22 +127,25 @@ public class CommandBlockItem extends CommandBase
             case "ban":
                 try
                 {
-                    Pair<String, BanListEntry> toBan = parse(sender, args);
+                    String[] banArgs = args.clone();
+                    Schedule schedule = parseSchedule(banArgs);
+                    banArgs = stripSchedule(banArgs, schedule);
+                    Pair<String, BanListEntry> toBan = parse(sender, banArgs);
+                    toBan.v.setExpiresAt(schedule == null ? null : schedule.expiresAt);
                     GlobalBanList.worldInstance.add(toBan.k, toBan.v);
-                    sender.addChatMessage(new ChatComponentText("Banned " + toBan.v.toString() + " in " + toBan.k).setChatStyle(new ChatStyle().setColor(GREEN)));
+                    sendBanFeedback(sender, toBan, schedule);
                 }
                 catch (Exception e)
                 {
-                    if (e instanceof CommandException) throw e;
-                    e.printStackTrace();
+                    if (e instanceof CommandException) throw (CommandException) e;
                     throw new WrongUsageException(e.getMessage());
                 }
                 break;
             case "meta":
-                changeHeldMetaBan(sender, args, false);
+                changeHeldMetaBan(sender, args, false, true);
                 break;
             case "unmeta":
-                changeHeldMetaBan(sender, args, true);
+                changeHeldMetaBan(sender, args, true, false);
                 break;
             case "unban":
                 try
@@ -124,23 +156,25 @@ public class CommandBlockItem extends CommandBase
                 }
                 catch (Exception e)
                 {
-                    if (e instanceof CommandException) throw e;
-                    e.printStackTrace();
+                    if (e instanceof CommandException) throw (CommandException) e;
                     throw new WrongUsageException(e.getMessage());
                 }
                 break;
         }
     }
 
-    private void changeHeldMetaBan(ICommandSender sender, String[] args, boolean remove)
+    private void changeHeldMetaBan(ICommandSender sender, String[] args, boolean remove, boolean allowSchedule)
     {
         try
         {
-            Pair<String, BanListEntry> entry = parseHeldMeta(sender, args);
+            Schedule schedule = allowSchedule ? parseSchedule(args) : null;
+            String[] parsedArgs = stripSchedule(args, schedule);
+            Pair<String, BanListEntry> entry = parseHeldMeta(sender, parsedArgs);
             if (!remove)
             {
+                entry.v.setExpiresAt(schedule == null ? null : schedule.expiresAt);
                 GlobalBanList.worldInstance.add(entry.k, entry.v);
-                sender.addChatMessage(new ChatComponentText("Banned " + entry.v + " in " + entry.k).setChatStyle(new ChatStyle().setColor(GREEN)));
+                sendBanFeedback(sender, entry, schedule);
             }
             else if (GlobalBanList.worldInstance.remove(entry.k, entry.v))
             {
@@ -154,8 +188,116 @@ public class CommandBlockItem extends CommandBase
         catch (Exception e)
         {
             if (e instanceof CommandException) throw (CommandException) e;
-            e.printStackTrace();
             throw new WrongUsageException(e.getMessage());
+        }
+    }
+
+    private void sendBanFeedback(ICommandSender sender, Pair<String, BanListEntry> entry, Schedule schedule)
+    {
+        String suffix = schedule != null && schedule.duration != null ? " for " + schedule.duration : "";
+        sender.addChatMessage(new ChatComponentText("Banned " + entry.v + " in " + entry.k + suffix + ".")
+                .setChatStyle(new ChatStyle().setColor(GREEN)));
+        if (schedule != null)
+        {
+            String local = DISPLAY_TIME.format(schedule.expiresAt.atZone(ZoneId.systemDefault()));
+            sender.addChatMessage(new ChatComponentText("Unban scheduled for " + local + ".")
+                    .setChatStyle(new ChatStyle().setColor(GREEN)));
+        }
+    }
+
+    private String[] stripSchedule(String[] args, Schedule schedule)
+    {
+        if (schedule == null) return args;
+        int count = args[args.length - 2].equalsIgnoreCase("timer") ? 2 : 3;
+        return Arrays.copyOf(args, args.length - count);
+    }
+
+    private Schedule parseSchedule(String[] args)
+    {
+        List<Integer> keywords = new ArrayList<>();
+        for (int i = 1; i < args.length; i++)
+            if (args[i].equalsIgnoreCase("timer") || args[i].equalsIgnoreCase("date")) keywords.add(i);
+        if (keywords.isEmpty()) return null;
+        if (keywords.size() > 1)
+        {
+            boolean timer = false, date = false;
+            for (Integer index : keywords)
+            {
+                timer |= args[index].equalsIgnoreCase("timer");
+                date |= args[index].equalsIgnoreCase("date");
+            }
+            throw new WrongUsageException(timer && date ? "Cannot use both timer and date schedules." : "Only one schedule may be specified.");
+        }
+        int index = keywords.get(0);
+        if (args[index].equalsIgnoreCase("timer"))
+        {
+            if (index + 1 >= args.length) throw new WrongUsageException("Missing timer duration.");
+            if (index != args.length - 2) throw new WrongUsageException("timer <duration> must be at the end of the command.");
+            return parseDuration(args[index + 1]);
+        }
+        if (index + 1 >= args.length) throw new WrongUsageException("Missing absolute date.");
+        if (index + 2 >= args.length) throw new WrongUsageException("Missing absolute time.");
+        if (index != args.length - 3) throw new WrongUsageException("date <MM-dd-yyyy> <time> must be at the end of the command.");
+        return parseDate(args[index + 1], args[index + 2]);
+    }
+
+    private Schedule parseDuration(String value)
+    {
+        if (value.startsWith("-")) throw new WrongUsageException("Timer duration cannot be negative.");
+        Matcher matcher = DURATION_PART.matcher(value);
+        int end = 0;
+        long[] amounts = new long[5];
+        while (matcher.find())
+        {
+            if (matcher.start() != end) throw new WrongUsageException("Invalid timer duration: " + value);
+            long amount;
+            try { amount = Long.parseLong(matcher.group(1)); }
+            catch (NumberFormatException e) { throw new WrongUsageException("Timer duration overflow: " + value); }
+            int unit = "ydhms".indexOf(matcher.group(2).toLowerCase(Locale.ROOT));
+            try { amounts[unit] = Math.addExact(amounts[unit], amount); }
+            catch (ArithmeticException e) { throw new WrongUsageException("Timer duration overflow: " + value); }
+            end = matcher.end();
+        }
+        if (end != value.length() || end == 0) throw new WrongUsageException("Invalid timer duration: " + value);
+        boolean zero = true;
+        for (long amount : amounts) zero &= amount == 0;
+        if (zero) throw new WrongUsageException("Timer duration must be greater than zero.");
+        try
+        {
+            ZonedDateTime expiration = ZonedDateTime.now(ZoneId.systemDefault())
+                    .plusYears(amounts[0]).plusDays(amounts[1]).plusHours(amounts[2])
+                    .plusMinutes(amounts[3]).plusSeconds(amounts[4]);
+            return new Schedule(expiration.toInstant(), value);
+        }
+        catch (DateTimeException | ArithmeticException e)
+        {
+            throw new WrongUsageException("Timer duration overflow: " + value);
+        }
+    }
+
+    private Schedule parseDate(String dateValue, String timeValue)
+    {
+        Matcher date = DATE.matcher(dateValue);
+        if (!date.matches()) throw new WrongUsageException("Invalid date; use MM-dd-yyyy with a four-digit year.");
+        Matcher time = TIME.matcher(timeValue);
+        if (!time.matches()) throw new WrongUsageException("Invalid time; use a 12-hour time such as 7pm or 7:30pm.");
+        try
+        {
+            int hour = Integer.parseInt(time.group(1));
+            int minute = time.group(2) == null ? 0 : Integer.parseInt(time.group(2));
+            if (hour < 1 || hour > 12 || minute > 59) throw new DateTimeException("invalid time");
+            if (hour == 12) hour = 0;
+            if (time.group(3).equalsIgnoreCase("pm")) hour += 12;
+            LocalDate localDate = LocalDate.of(Integer.parseInt(date.group(3)), Integer.parseInt(date.group(1)), Integer.parseInt(date.group(2)));
+            LocalDateTime local = LocalDateTime.of(localDate, LocalTime.of(hour, minute));
+            Instant expiration = local.atZone(ZoneId.systemDefault()).toInstant();
+            if (!expiration.isAfter(Instant.now())) throw new WrongUsageException("Scheduled date must be in the future.");
+            return new Schedule(expiration, null);
+        }
+        catch (WrongUsageException e) { throw e; }
+        catch (DateTimeException | NumberFormatException e)
+        {
+            throw new WrongUsageException("Invalid date or time; use MM-dd-yyyy and a time such as 7:30pm.");
         }
     }
 
@@ -236,7 +378,9 @@ public class CommandBlockItem extends CommandBase
             sender.addChatMessage(new ChatComponentText("Dimension " + list.getDimension()).setChatStyle(new ChatStyle().setColor(AQUA)));
             for (BanListEntry entry : list.banListEntryMap.values())
             {
-                sender.addChatMessage(new ChatComponentText(entry.toString()));
+                String expiration = entry.isPermanent() ? "" : " [unbans "
+                        + DISPLAY_TIME.format(entry.getExpiresAt().atZone(ZoneId.systemDefault())) + "]";
+                sender.addChatMessage(new ChatComponentText(entry.toString() + expiration));
             }
         }
     }
@@ -312,10 +456,12 @@ public class CommandBlockItem extends CommandBase
             set.add(GlobalBanList.GLOBAL_NAME);
             //noinspection unchecked
             set.addAll(Item.itemRegistry.getKeys());
+            if (args[0].equalsIgnoreCase("ban")) { set.add("timer"); set.add("date"); }
             return getListOfStringsFromIterableMatchingLastWord(args, set);
         }
         if (args[0].equalsIgnoreCase("meta") || args[0].equalsIgnoreCase("unmeta"))
         {
+            if (args[0].equalsIgnoreCase("meta")) return getListOfStringsMatchingLastWord(args, GlobalBanList.GLOBAL_NAME, "timer", "date");
             return getListOfStringsMatchingLastWord(args, GlobalBanList.GLOBAL_NAME);
         }
         return null;

@@ -6,6 +6,7 @@ import net.doubledoordev.itemblacklist.util.ItemBlacklisted;
 import net.minecraft.item.Item;
 
 import java.lang.reflect.Type;
+import java.time.Instant;
 
 import static net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE;
 
@@ -16,6 +17,7 @@ public class BanListEntry
 {
     private Item item;
     private int meta = 0;
+    private Instant expiresAt;
 
     public BanListEntry(GameRegistry.UniqueIdentifier uid, int meta)
     {
@@ -38,6 +40,26 @@ public class BanListEntry
     public Item getItem()
     {
         return item;
+    }
+
+    public Instant getExpiresAt()
+    {
+        return expiresAt;
+    }
+
+    public void setExpiresAt(Instant expiresAt)
+    {
+        this.expiresAt = expiresAt;
+    }
+
+    public boolean isPermanent()
+    {
+        return expiresAt == null;
+    }
+
+    public boolean isExpired(Instant now)
+    {
+        return expiresAt != null && !expiresAt.isAfter(now);
     }
 
     @Override
@@ -88,7 +110,20 @@ public class BanListEntry
                 }
                 meta = legacyMeta;
             }
-            return new BanListEntry(object.get("item").getAsString(), meta);
+            BanListEntry entry = new BanListEntry(object.get("item").getAsString(), meta);
+            if (object.has("expiresAt"))
+            {
+                try
+                {
+                    entry.expiresAt = Instant.parse(object.get("expiresAt").getAsString());
+                }
+                catch (Exception e)
+                {
+                    throw new JsonParseException("Invalid 'expiresAt' value for item "
+                            + object.get("item").getAsString() + ".", e);
+                }
+            }
+            return entry;
         }
 
         private int parseMeta(JsonElement element, String property) throws JsonParseException
@@ -112,6 +147,7 @@ public class BanListEntry
             jsonObject.addProperty("item", GameRegistry.findUniqueIdentifierFor(src.item).toString());
             if (src.meta == WILDCARD_VALUE) jsonObject.addProperty("meta", "*");
             else jsonObject.addProperty("meta", src.meta);
+            if (src.expiresAt != null) jsonObject.addProperty("expiresAt", src.expiresAt.toString());
             return jsonObject;
         }
     }
