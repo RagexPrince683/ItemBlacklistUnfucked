@@ -2,6 +2,11 @@
 
 Mod does not require D3Core.
 
+Banned recipe outputs remain visible in player and crafting-table result slots
+as banned items, but cannot be extracted. The server enforces this restriction
+before vanilla handles container clicks, so it does not depend on the client or
+on NEI.
+
 ![Now is not the time to use that.](meme.jpg)
 
 ## Development mods

@@ -118,10 +118,14 @@ public class ServerEventHandlers
     {
         EntityPlayer player = event.entityPlayer;
         if (!Helper.shouldCare(event.entityPlayer)) return;
-        if (player.getEntityData().getInteger(Helper.MODID) != player.openContainer.hashCode()) // Crude is inventory changed
+        if (player.getEntityData().getInteger(Helper.MODID) != player.openContainer.hashCode())
         {
             player.getEntityData().setInteger(Helper.MODID, player.openContainer.hashCode());
             GlobalBanList.process(player.worldObj.provider.dimensionId, player.openContainer, player);
         }
+
+        // Recipes can change without the open Container instance changing.
+        // Continuously scan only result slots after the one-time full pass.
+        CraftingResultHandler.updateCraftingResults(player, player.openContainer);
     }
 }

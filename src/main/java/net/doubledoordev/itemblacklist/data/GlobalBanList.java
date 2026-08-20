@@ -11,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import org.apache.commons.io.FileUtils;
@@ -121,7 +122,9 @@ public class GlobalBanList
             ItemStack oldStack = slot.getStack();
             ItemStack newStack = process(dim, oldStack, unpackOnly);
             if (newStack == oldStack) continue;
-            if (slot.isItemValid(oldStack))
+            // SlotCrafting intentionally rejects inserted items, but a banned
+            // result must remain visible in that slot as the packed marker.
+            if (slot instanceof SlotCrafting || slot.isItemValid(oldStack))
             {
                 slot.putStack(newStack);
             }

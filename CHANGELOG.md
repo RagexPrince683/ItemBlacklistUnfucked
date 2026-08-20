@@ -1,5 +1,13 @@
 # Changelog
 
+## PR: Block extraction of banned crafting results
+
+- Banned crafting results can no longer be extracted while a crafting GUI
+  remains open.
+- Blocked results remain visible using the existing banned-item representation.
+- Crafting-result click prevention is server-authoritative, including direct
+  window-click packets and every vanilla container click mode.
+
 ## PR: Fix GTNH build configuration
 
 - Corrected the GTNH `modGroup` to match the existing
