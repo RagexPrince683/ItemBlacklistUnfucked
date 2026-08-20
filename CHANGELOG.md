@@ -1,5 +1,17 @@
 # Changelog
 
+## PR: Add independent crafting and placement item rules
+
+- Added permanent craft-output exceptions, placement-only bans, and
+  crafting-input-only bans with registry IDs, exact or wildcard metadata, and
+  the existing global/dimension selector syntax.
+- Persisted the three rule types in separate world JSON files, included them in
+  reloads and the shared administrative/public list display, and added all six
+  add/remove commands with help and tab completion.
+- Reused the server-authoritative `Container.slotClick` guard to inspect the
+  cached `SlotCrafting` matrix, while placement-only enforcement uses Forge
+  place and multi-place events without packing or consuming the item.
+
 ## PR: Broadcast timed expirations and add a configurable public ban list
 
 - Broadcast each runtime timed world-ban expiration with its registry item,

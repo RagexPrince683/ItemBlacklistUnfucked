@@ -80,6 +80,38 @@ The setting is saved as `publicBanListEnabled` in the `general` category of
 `config/ItemBlacklist.cfg` and survives server restarts. The existing
 `/itemblacklist list` remains available to operators regardless of this setting.
 
+### Special item rules
+
+Three permanent world rule lists complement, but never replace, the normal
+blacklist. With no explicit item, each command uses the held stack's exact
+metadata; an explicit registry ID without metadata uses `*`. Each accepts the
+sender's current dimension by default, a dimension list/range, or `__GLOBAL__`:
+
+```text
+/itemblacklist allowbanneditemcraft [dimension] [registry:item[:meta|*]]
+/itemblacklist disallowbanneditemcraft [dimension] [registry:item[:meta|*]]
+/itemblacklist banplacementonly [dimension] [registry:item[:meta|*]]
+/itemblacklist unbanplacementonly [dimension] [registry:item[:meta|*]]
+/itemblacklist bancraftingonly [dimension] [registry:item[:meta|*]]
+/itemblacklist unbancraftingonly [dimension] [registry:item[:meta|*]]
+```
+
+For example, `/itemblacklist allowbanneditemcraft minecraft:dye:15` lets a
+normally banned bonemeal result be taken from a crafting slot, but does not
+remove or weaken its normal ban afterward. A placement-only rule such as
+`/itemblacklist banplacementonly __GLOBAL__ minecraft:wool:14` leaves red wool
+holdable, movable, craftable, and otherwise usable while canceling its block
+placement. A crafting-only rule such as
+`/itemblacklist bancraftingonly minecraft:diamond:*` leaves diamonds usable
+everywhere else but prevents taking a result from a `SlotCrafting` recipe whose
+actual crafting matrix contains one.
+
+Craft-output allowances never override a prohibited crafting ingredient.
+Placement-only and crafting-only entries remain real item stacks and are not
+packed as normal banned items. Both `/itemblacklist list` and the read-only
+`/banlist` show separate **Placement-only bans**, **Crafting-only bans**, and
+**Banned-item crafting exceptions** sections.
+
 ### `/unpack`
 Lets anyone unpack there own inventory. Useful for items required in crafting. **Can be disabled in the config**
 
@@ -141,6 +173,20 @@ stored as an ISO-8601 UTC instant (for example,
 so existing files need no migration. Absolute instants ensure server downtime
 counts toward expiration and schedules survive restarts. Expired entries never
 match a ban and are removed from the world JSON by periodic server cleanup.
+
+The special rules use the same dimension keys and canonical registry-ID/
+`meta` entry format, but do not support timers or `expiresAt`. They are saved
+separately in the world directory and are optional until a rule is added:
+
+- `ItemBlacklistCraftAllow.json` — exceptions that allow normally banned
+  crafting outputs to be produced.
+- `ItemBlacklistPlacementOnly.json` — items or resulting blocks that cannot be
+  placed.
+- `ItemBlacklistCraftingOnly.json` — items that cannot be used as ingredients
+  in an `InventoryCrafting` matrix.
+
+`/itemblacklist reload` reloads the normal world/pack blacklist and all three
+special files, then refreshes online inventories and open crafting containers.
 
 ### Ranges / Multiple dimensions
 

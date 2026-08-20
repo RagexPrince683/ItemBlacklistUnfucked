@@ -5,6 +5,7 @@ import net.doubledoordev.itemblacklist.Helper;
 import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.data.BanListEntry;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
+import net.doubledoordev.itemblacklist.data.SpecialRuleList;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -102,6 +103,12 @@ public class CommandBlockItem extends CommandBase
             sender.addChatMessage(makeHelpText("timers", "y years, d days, h hours, m minutes, s seconds (example: 1d12h)."));
             sender.addChatMessage(makeHelpText("unban [dim list] [item[:*|meta]]", "Unban an item."));
             sender.addChatMessage(makeHelpText("unmeta [dim list]", "Unban only the held metadata variant."));
+            sender.addChatMessage(makeHelpText("allowbanneditemcraft [dim] [item]", "Allow a normally banned item to be produced by crafting."));
+            sender.addChatMessage(makeHelpText("disallowbanneditemcraft [dim] [item]", "Remove a banned-item crafting exception."));
+            sender.addChatMessage(makeHelpText("banplacementonly [dim] [item]", "Prevent block placement only."));
+            sender.addChatMessage(makeHelpText("unbanplacementonly [dim] [item]", "Remove a placement-only ban."));
+            sender.addChatMessage(makeHelpText("bancraftingonly [dim] [item]", "Prevent use as a crafting ingredient only."));
+            sender.addChatMessage(makeHelpText("unbancraftingonly [dim] [item]", "Remove a crafting-only ban."));
             return;
         }
         String arg0 = args[0].toLowerCase();
@@ -164,7 +171,97 @@ public class CommandBlockItem extends CommandBase
                     throw new WrongUsageException(e.getMessage());
                 }
                 break;
+            case "allowbanneditemcraft":
+                changeSpecialRule(sender, args, SpecialRuleList.craftAllow, false, "Added crafting exception for ");
+                break;
+            case "disallowbanneditemcraft":
+                changeSpecialRule(sender, args, SpecialRuleList.craftAllow, true, "Removed crafting exception for ");
+                break;
+            case "banplacementonly":
+                changeSpecialRule(sender, args, SpecialRuleList.placementOnly, false, "Added placement-only ban for ");
+                break;
+            case "unbanplacementonly":
+                changeSpecialRule(sender, args, SpecialRuleList.placementOnly, true, "Removed placement-only ban for ");
+                break;
+            case "bancraftingonly":
+                changeSpecialRule(sender, args, SpecialRuleList.craftingOnly, false, "Added crafting-only ban for ");
+                break;
+            case "unbancraftingonly":
+                changeSpecialRule(sender, args, SpecialRuleList.craftingOnly, true, "Removed crafting-only ban for ");
+                break;
         }
+    }
+
+    private void changeSpecialRule(ICommandSender sender, String[] args, SpecialRuleList rules,
+            boolean remove, String success)
+    {
+        try
+        {
+            Pair<String, BanListEntry> parsed = parseSpecial(sender, args);
+            boolean changed;
+            if (remove) changed = rules.remove(parsed.k, parsed.v);
+            else
+            {
+                rules.add(parsed.k, parsed.v);
+                changed = true;
+            }
+            if (changed)
+            {
+                sender.addChatMessage(new ChatComponentText(success + parsed.v + " in " + parsed.k + ".")
+                        .setChatStyle(new ChatStyle().setColor(GREEN)));
+                ServerEventHandlers.refreshOnlinePlayers();
+            }
+            else sender.addChatMessage(new ChatComponentText("No matching special rule for " + parsed.v + " in " + parsed.k + ".")
+                    .setChatStyle(new ChatStyle().setColor(RED)));
+        }
+        catch (Exception e)
+        {
+            if (e instanceof CommandException) throw (CommandException) e;
+            throw new WrongUsageException(e.getMessage());
+        }
+    }
+
+    private Pair<String, BanListEntry> parseSpecial(ICommandSender sender, String[] args)
+    {
+        String dimensions = null;
+        BanListEntry entry = null;
+        for (int i = 1; i < args.length; i++)
+        {
+            String argument = args[i];
+            if (GlobalBanList.GLOBAL_NAME.equalsIgnoreCase(argument))
+            {
+                if (dimensions != null) throw new WrongUsageException("Double dimension specifiers.");
+                dimensions = GlobalBanList.GLOBAL_NAME;
+                continue;
+            }
+            try
+            {
+                Helper.parseDimIds(argument);
+                if (dimensions != null) throw new WrongUsageException("Double dimension specifiers.");
+                dimensions = argument;
+                continue;
+            }
+            catch (WrongUsageException e) { throw e; }
+            catch (Exception ignored) { }
+
+            String[] item = argument.split(":", -1);
+            if (item.length < 2 || item.length > 3 || item[0].isEmpty() || item[1].isEmpty())
+                throw new WrongUsageException("Not a valid registry item: " + argument);
+            if (entry != null) throw new WrongUsageException("Double item specifiers.");
+            int meta = OreDictionary.WILDCARD_VALUE;
+            if (item.length == 3 && !"*".equals(item[2])) meta = parseInt(sender, item[2]);
+            entry = new BanListEntry(item[0] + ":" + item[1], meta);
+        }
+        EntityPlayer player = null;
+        if (dimensions == null || entry == null) player = getCommandSenderAsPlayer(sender);
+        if (dimensions == null) dimensions = String.valueOf(player.dimension);
+        if (entry == null)
+        {
+            ItemStack held = player.getHeldItem();
+            if (held == null) throw new WrongUsageException("No item specified and no item held.");
+            entry = new BanListEntry(GameRegistry.findUniqueIdentifierFor(held.getItem()), held.getItemDamage());
+        }
+        return new Pair<>(dimensions, entry);
     }
 
     private void publicList(ICommandSender sender, String[] args)
@@ -427,7 +524,7 @@ public class CommandBlockItem extends CommandBase
     public List addTabCompletionOptions(ICommandSender sender, String[] args)
     {
         if (isUsernameIndex(args, args.length)) return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-        if (args.length == 1) return getListOfStringsMatchingLastWord(args, "reload", "pack", "unpack", "list", "publiclist", "ban", "meta", "unban", "unmeta");
+        if (args.length == 1) return getListOfStringsMatchingLastWord(args, "reload", "pack", "unpack", "list", "publiclist", "ban", "meta", "unban", "unmeta", "allowbanneditemcraft", "disallowbanneditemcraft", "banplacementonly", "unbanplacementonly", "bancraftingonly", "unbancraftingonly");
         if (args[0].equalsIgnoreCase("publiclist") && args.length == 2)
             return getListOfStringsMatchingLastWord(args, "on", "off");
         if (args[0].equalsIgnoreCase("ban") || args[0].equalsIgnoreCase("unban"))
@@ -446,7 +543,24 @@ public class CommandBlockItem extends CommandBase
             if (args[0].equalsIgnoreCase("meta")) return getListOfStringsMatchingLastWord(args, GlobalBanList.GLOBAL_NAME, "timer", "date");
             return getListOfStringsMatchingLastWord(args, GlobalBanList.GLOBAL_NAME);
         }
+        if (isSpecialCommand(args[0]))
+        {
+            HashSet set = new HashSet();
+            set.add(GlobalBanList.GLOBAL_NAME);
+            set.addAll(Item.itemRegistry.getKeys());
+            return getListOfStringsFromIterableMatchingLastWord(args, set);
+        }
         return null;
+    }
+
+    private boolean isSpecialCommand(String command)
+    {
+        return command.equalsIgnoreCase("allowbanneditemcraft")
+                || command.equalsIgnoreCase("disallowbanneditemcraft")
+                || command.equalsIgnoreCase("banplacementonly")
+                || command.equalsIgnoreCase("unbanplacementonly")
+                || command.equalsIgnoreCase("bancraftingonly")
+                || command.equalsIgnoreCase("unbancraftingonly");
     }
 
     @Override

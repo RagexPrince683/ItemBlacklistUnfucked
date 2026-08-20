@@ -2,6 +2,7 @@ package net.doubledoordev.itemblacklist.util;
 
 import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
+import net.doubledoordev.itemblacklist.data.SpecialRuleList;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
@@ -80,6 +81,9 @@ public class CommandBanList extends CommandBase
         dimensions.add(GlobalBanList.GLOBAL_NAME);
         addDimensions(dimensions, GlobalBanList.worldInstance);
         addDimensions(dimensions, GlobalBanList.packInstance);
+        dimensions.addAll(SpecialRuleList.craftAllow.getDimensionNames());
+        dimensions.addAll(SpecialRuleList.placementOnly.getDimensionNames());
+        dimensions.addAll(SpecialRuleList.craftingOnly.getDimensionNames());
         return getListOfStringsFromIterableMatchingLastWord(args, dimensions);
     }
 
