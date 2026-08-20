@@ -1,5 +1,10 @@
 # Changelog
 
+## PR: Fix GTNH coremod class resolution
+
+- Made the configured coremod class relative to `modGroup`, allowing the GTNH
+  convention plugin to resolve the existing loading plugin correctly.
+
 ## PR: Enforce banned crafting results with a Forge coremod
 
 - Banned crafting results can no longer be extracted while a crafting GUI
