@@ -1,12 +1,14 @@
 package net.doubledoordev.itemblacklist.util;
 
 import net.doubledoordev.itemblacklist.Helper;
+import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotCrafting;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 
 import java.util.List;
 
@@ -64,8 +66,10 @@ public final class CraftingResultHandler
             // immediately make the authoritative visible result the marker.
             slot.putStack(ItemBlacklisted.pack(stack));
             container.detectAndSendChanges();
-            return true;
+            packed = true;
         }
+
+        if (packed) player.addChatComponentMessage(new ChatComponentText(ItemBlacklist.message));
         return packed;
     }
 }
