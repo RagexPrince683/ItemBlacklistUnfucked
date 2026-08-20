@@ -1,5 +1,15 @@
 # Changelog
 
+## PR: Add held-item metadata ban commands and canonical JSON metadata
+
+- Added `/itemblacklist meta` and `/itemblacklist unmeta` to create and remove
+  exact held-item metadata bans across the existing dimension selectors.
+- Kept held-item `/itemblacklist ban` wildcard behavior and explicit registry
+  item metadata syntax.
+- Made `meta` the canonical JSON property while retaining validated support for
+  legacy `damage` entries and wildcard defaults.
+- Documented metadata-specific dye and bonemeal bans.
+
 ## PR: Show the banned-item message for crafting clicks
 
 - Display the configured banned-item message when a player attempts to take a

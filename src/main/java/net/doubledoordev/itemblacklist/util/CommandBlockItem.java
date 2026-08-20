@@ -69,8 +69,10 @@ public class CommandBlockItem extends CommandBase
             sender.addChatMessage(makeHelpText("pack [player]", "Lock banned items in targets inventory."));
             sender.addChatMessage(makeHelpText("unpack [player]", "Unlock banned items in targets inventory."));
             sender.addChatMessage(makeHelpText("list [dim|player]", "List banned items of all, player, or dim"));
-            sender.addChatMessage(makeHelpText("ban [dim list] [item[:*|meta]]", "Ban an item."));
+            sender.addChatMessage(makeHelpText("ban [dim list] [item[:*|meta]]", "Ban an item; a held item bans all metadata variants."));
+            sender.addChatMessage(makeHelpText("meta [dim list]", "Ban only the held metadata variant (for example, one dye color)."));
             sender.addChatMessage(makeHelpText("unban [dim list] [item[:*|meta]]", "Unban an item."));
+            sender.addChatMessage(makeHelpText("unmeta [dim list]", "Unban only the held metadata variant."));
             return;
         }
         String arg0 = args[0].toLowerCase();
@@ -107,6 +109,12 @@ public class CommandBlockItem extends CommandBase
                     throw new WrongUsageException(e.getMessage());
                 }
                 break;
+            case "meta":
+                changeHeldMetaBan(sender, args, false);
+                break;
+            case "unmeta":
+                changeHeldMetaBan(sender, args, true);
+                break;
             case "unban":
                 try
                 {
@@ -122,6 +130,51 @@ public class CommandBlockItem extends CommandBase
                 }
                 break;
         }
+    }
+
+    private void changeHeldMetaBan(ICommandSender sender, String[] args, boolean remove)
+    {
+        try
+        {
+            Pair<String, BanListEntry> entry = parseHeldMeta(sender, args);
+            if (!remove)
+            {
+                GlobalBanList.worldInstance.add(entry.k, entry.v);
+                sender.addChatMessage(new ChatComponentText("Banned " + entry.v + " in " + entry.k).setChatStyle(new ChatStyle().setColor(GREEN)));
+            }
+            else if (GlobalBanList.worldInstance.remove(entry.k, entry.v))
+            {
+                sender.addChatMessage(new ChatComponentText("Unbanned " + entry.v + " in " + entry.k).setChatStyle(new ChatStyle().setColor(GREEN)));
+            }
+            else
+            {
+                sender.addChatMessage(new ChatComponentText("Can't unban " + entry.v + " in " + entry.k).setChatStyle(new ChatStyle().setColor(RED)));
+            }
+        }
+        catch (Exception e)
+        {
+            if (e instanceof CommandException) throw (CommandException) e;
+            e.printStackTrace();
+            throw new WrongUsageException(e.getMessage());
+        }
+    }
+
+    private Pair<String, BanListEntry> parseHeldMeta(ICommandSender sender, String[] args)
+    {
+        String dimensions = null;
+        for (int i = 1; i < args.length; i++)
+        {
+            String candidate = args[i];
+            if (!GlobalBanList.GLOBAL_NAME.equals(candidate)) Helper.parseDimIds(candidate);
+            if (dimensions != null) throw new WrongUsageException("Double dimension specifiers: " + dimensions + " AND " + candidate);
+            dimensions = candidate;
+        }
+
+        EntityPlayer player = getCommandSenderAsPlayer(sender);
+        ItemStack stack = player.getHeldItem();
+        if (stack == null) throw new WrongUsageException("The meta command requires a held item.");
+        if (dimensions == null) dimensions = String.valueOf(player.dimension);
+        return new Pair<>(dimensions, new BanListEntry(GameRegistry.findUniqueIdentifierFor(stack.getItem()), stack.getItemDamage()));
     }
 
     private Pair<String, BanListEntry> parse(ICommandSender sender, String[] args)
@@ -250,7 +303,7 @@ public class CommandBlockItem extends CommandBase
     public List addTabCompletionOptions(ICommandSender sender, String[] args)
     {
         if (isUsernameIndex(args, args.length)) return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-        if (args.length == 1) return getListOfStringsMatchingLastWord(args, "reload", "pack", "unpack", "list", "ban", "unban");
+        if (args.length == 1) return getListOfStringsMatchingLastWord(args, "reload", "pack", "unpack", "list", "ban", "meta", "unban", "unmeta");
         if (args[0].equalsIgnoreCase("ban") || args[0].equalsIgnoreCase("unban"))
         {
             //noinspection unchecked
@@ -260,6 +313,10 @@ public class CommandBlockItem extends CommandBase
             //noinspection unchecked
             set.addAll(Item.itemRegistry.getKeys());
             return getListOfStringsFromIterableMatchingLastWord(args, set);
+        }
+        if (args[0].equalsIgnoreCase("meta") || args[0].equalsIgnoreCase("unmeta"))
+        {
+            return getListOfStringsMatchingLastWord(args, GlobalBanList.GLOBAL_NAME);
         }
         return null;
     }
