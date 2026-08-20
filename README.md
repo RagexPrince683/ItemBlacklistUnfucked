@@ -4,6 +4,18 @@ Mod does not require D3Core.
 
 ![Now is not the time to use that.](meme.jpg)
 
+## Development mods
+
+Place ordinary production Minecraft 1.7.10 mod JARs in `devmods/*.jar`. Gradle
+automatically remaps these JARs from production names into the MCP development
+environment through RetroFuturaGradle.
+
+Only place JARs that are already deobfuscated for development in
+`devmods/deobf/*.jar`; Gradle loads these directly without remapping them. Both
+locations are available to development compilation, `runClient`, and `runServer`.
+The local `devmods/` directory is ignored by Git, and none of its contents are
+included in release JARs or published dependencies.
+
 ## Commands
 ### `/blockitem` (also `/itemblacklist` or `/blacklist`)
 The main command, it has an ingame help. (`/blockitem help`)
@@ -62,4 +74,3 @@ If you want to specify multiple dimensions (for example, "0, -1 and 1", you can 
 You can also specify a range of dimensions with the pound/hash `#` symbol: `10#100`.
 
 You can create multiple overlapping ranges, they should merge. Just don't make 2 identical ranges.
- 
