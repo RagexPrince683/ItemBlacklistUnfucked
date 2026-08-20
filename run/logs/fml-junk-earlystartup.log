@@ -1,0 +1,56 @@
+[02:31:44] [main/INFO] [GradleStart]: userProperties: {}
+[02:31:44] [main/INFO] [GradleStart]: assetsDir: C:\Users\Owner\.gradle\caches\retro_futura_gradle\assets
+[02:31:44] [main/INFO] [GradleStart]: assetIndex: 1.7.10
+[02:31:44] [main/INFO] [GradleStart]: accessToken: 0
+[02:31:44] [main/INFO] [GradleStart]: version: 1.7.10
+[02:31:44] [main/INFO] [GradleStart]: username: Developer
+[02:31:44] [main/INFO] [GradleStart]: Extra: [--gameDir, C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc]
+[02:31:44] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\Owner\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, Developer, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --gameDir, C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[02:31:44] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[02:31:44] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[02:31:44] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[02:31:44] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[02:33:50] [main/INFO] [GradleStart]: userProperties: {}
+[02:33:50] [main/INFO] [GradleStart]: assetsDir: C:\Users\Owner\.gradle\caches\retro_futura_gradle\assets
+[02:33:50] [main/INFO] [GradleStart]: assetIndex: 1.7.10
+[02:33:50] [main/INFO] [GradleStart]: accessToken: 0
+[02:33:50] [main/INFO] [GradleStart]: version: 1.7.10
+[02:33:50] [main/INFO] [GradleStart]: username: Developer
+[02:33:50] [main/INFO] [GradleStart]: Extra: [--gameDir, C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc]
+[02:33:50] [main/INFO] [GradleStart]: Found and added coremod: codechicken.nei.asm.NEICorePlugin
+[02:33:50] [main/INFO] [GradleStart]: Found and added coremod: codechicken.core.launch.CodeChickenCorePlugin
+[02:33:50] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\Owner\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, Developer, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --gameDir, C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[02:33:50] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[02:33:50] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[02:33:50] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[02:33:50] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker
+[02:37:35] [main/INFO] [GradleStart]: Extra: [nogui]
+[02:37:35] [main/INFO] [GradleStart]: Found and added coremod: codechicken.nei.asm.NEICorePlugin
+[02:37:35] [main/INFO] [GradleStart]: Found and added coremod: codechicken.core.launch.CodeChickenCorePlugin
+[02:37:35] [main/INFO] [GradleStart]: Running with arguments: [--tweakClass, cpw.mods.fml.common.launcher.FMLServerTweaker, nogui, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[02:37:35] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLServerTweaker
+[02:37:35] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLServerTweaker
+[02:37:35] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[02:37:35] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLServerTweaker
+[02:39:27] [main/INFO] [GradleStart]: Extra: [nogui]
+[02:39:27] [main/INFO] [GradleStart]: Found and added coremod: codechicken.nei.asm.NEICorePlugin
+[02:39:27] [main/INFO] [GradleStart]: Found and added coremod: codechicken.core.launch.CodeChickenCorePlugin
+[02:39:27] [main/INFO] [GradleStart]: Running with arguments: [--tweakClass, cpw.mods.fml.common.launcher.FMLServerTweaker, nogui, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[02:39:27] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLServerTweaker
+[02:39:27] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLServerTweaker
+[02:39:27] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[02:39:27] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLServerTweaker
+[02:39:31] [main/INFO] [GradleStart]: userProperties: {}
+[02:39:31] [main/INFO] [GradleStart]: assetsDir: C:\Users\Owner\.gradle\caches\retro_futura_gradle\assets
+[02:39:31] [main/INFO] [GradleStart]: assetIndex: 1.7.10
+[02:39:31] [main/INFO] [GradleStart]: accessToken: 0
+[02:39:31] [main/INFO] [GradleStart]: version: 1.7.10
+[02:39:31] [main/INFO] [GradleStart]: username: Developer
+[02:39:31] [main/INFO] [GradleStart]: Extra: [--gameDir, C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc]
+[02:39:31] [main/INFO] [GradleStart]: Found and added coremod: codechicken.nei.asm.NEICorePlugin
+[02:39:31] [main/INFO] [GradleStart]: Found and added coremod: codechicken.core.launch.CodeChickenCorePlugin
+[02:39:31] [main/INFO] [GradleStart]: Running with arguments: [--userProperties, {}, --assetsDir, C:\Users\Owner\.gradle\caches\retro_futura_gradle\assets, --assetIndex, 1.7.10, --accessToken, {REDACTED}, --version, 1.7.10, --username, Developer, --tweakClass, cpw.mods.fml.common.launcher.FMLTweaker, --gameDir, C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run, --uuid, 31c4910d-9b69-4725-8969-9ed53ac8a7dc, --tweakClass, net.minecraftforge.gradle.tweakers.CoremodTweaker]
+[02:39:31] [main/INFO] [LaunchWrapper]: Loading tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[02:39:31] [main/INFO] [LaunchWrapper]: Using primary tweak class name cpw.mods.fml.common.launcher.FMLTweaker
+[02:39:31] [main/INFO] [LaunchWrapper]: Loading tweak class name net.minecraftforge.gradle.tweakers.CoremodTweaker
+[02:39:31] [main/INFO] [LaunchWrapper]: Calling tweak class cpw.mods.fml.common.launcher.FMLTweaker

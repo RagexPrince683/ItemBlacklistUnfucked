@@ -1,0 +1,92 @@
+[02:33:52] [main/INFO]: Setting user: Developer
+[02:33:53] [Client thread/INFO]: LWJGL Version: 2.9.4
+[02:33:59] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:NotEnoughItems, FMLFileResourcePack:ItemBlacklist, FMLFileResourcePack:MC Helicopter Overdrive+, FMLFileResourcePack:NoMoreRecipeConflict
+[02:34:53] [Client thread/WARN]: File mcheli:sounds/aps_snd.ogg does not exist, cannot add it to event mcheli:aps_snd
+[02:34:53] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[02:34:53] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[02:34:53] [Sound Library Loader/INFO]: Sound engine started
+[02:34:53] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:NotEnoughItems, FMLFileResourcePack:ItemBlacklist, FMLFileResourcePack:MC Helicopter Overdrive+, FMLFileResourcePack:NoMoreRecipeConflict, MCHeli Live Development Resources
+[02:34:54] [Client thread/INFO]: Created: 1024x512 textures/blocks-atlas
+[02:34:54] [Client thread/INFO]: Created: 2048x2048 textures/items-atlas
+[02:34:55] [Client thread/WARN]: File mcheli:sounds/aps_snd.ogg does not exist, cannot add it to event mcheli:aps_snd
+[02:34:55] [Client thread/WARN]: File mcheli:sounds/aps_snd.ogg does not exist, cannot add it to event mcheli:aps_snd
+[02:34:55] [Sound Library Loader/INFO]: Sound engine started
+[02:34:58] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[02:34:58] [Server thread/INFO]: Generating keypair
+[02:34:58] [Server thread/INFO]: Preparing start region for level 0
+[02:34:59] [Server thread/INFO]: Changing view distance to 8, from 10
+[02:34:59] [Server thread/INFO]: Developer[local:E:3856a82a] logged in with entity id 43 at (-331.5, 4.0, 418.5)
+[02:34:59] [Server thread/INFO]: Developer joined the game
+[02:35:06] [Client thread/INFO]: [CHAT] 190 entity killed(.).
+[02:35:08] [Client thread/INFO]: [CHAT] doMobLoot, doMobSpawning
+[02:35:08] [Client thread/INFO]: [CHAT] doMobLoot, doMobSpawning
+[02:35:09] [Server thread/INFO]: [Developer: Game rule has been updated]
+[02:35:09] [Client thread/INFO]: [CHAT] Game rule has been updated
+[02:35:10] [Client thread/INFO]: [CHAT] 5 entity killed(.).
+[02:35:12] [Server thread/INFO]: Saving and pausing game...
+[02:35:12] [Server thread/INFO]: Saving chunks for level 'retard'/Overworld
+[02:35:12] [Server thread/INFO]: Saving chunks for level 'retard'/Nether
+[02:35:12] [Server thread/INFO]: Saving chunks for level 'retard'/The End
+[02:35:25] [Client thread/INFO]: [CHAT] Banned mcheli:airframe2 * in 0
+[02:35:35] [Client thread/INFO]: [CHAT] Unknown command. Try /help for a list of commands
+[02:35:36] [Server thread/INFO]: Saving and pausing game...
+[02:35:36] [Server thread/INFO]: Saving chunks for level 'retard'/Overworld
+[02:35:36] [Server thread/INFO]: Saving chunks for level 'retard'/Nether
+[02:35:36] [Server thread/INFO]: Saving chunks for level 'retard'/The End
+[02:35:47] [Server thread/INFO]: Stopping server
+[02:35:47] [Server thread/INFO]: Saving players
+[02:35:47] [Server thread/INFO]: Saving worlds
+[02:35:47] [Server thread/INFO]: Saving chunks for level 'retard'/Overworld
+[02:35:47] [Server thread/INFO]: Saving chunks for level 'retard'/Nether
+[02:35:47] [Server thread/INFO]: Saving chunks for level 'retard'/The End
+[02:35:59] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[02:35:59] [Server thread/INFO]: Generating keypair
+[02:35:59] [Server thread/INFO]: Converting map!
+[02:35:59] [Server thread/INFO]: Scanning folders...
+[02:35:59] [Server thread/INFO]: Total conversion count is 0
+[02:35:59] [Server thread/INFO]: Preparing start region for level 0
+[02:35:59] [Server thread/INFO]: Changing view distance to 8, from 10
+[02:36:00] [Server thread/INFO]: Developer[local:E:04a78f6a] logged in with entity id 100806 at (-1689.5, 4.0, 938.5)
+[02:36:00] [Server thread/INFO]: Developer joined the game
+[02:36:01] [Server thread/INFO]: Developer has just earned the achievement [Taking Inventory]
+[02:36:01] [Client thread/INFO]: [CHAT] Developer has just earned the achievement [Taking Inventory]
+[02:36:11] [Server thread/INFO]: Saving and pausing game...
+[02:36:11] [Server thread/INFO]: Saving chunks for level 'retard2'/Overworld
+[02:36:11] [Server thread/INFO]: Saving chunks for level 'retard2'/Nether
+[02:36:11] [Server thread/INFO]: Saving chunks for level 'retard2'/The End
+[02:36:13] [Client thread/INFO]: Started on 58605
+[02:36:13] [Client thread/INFO]: [CHAT] Local game hosted on port 58605
+[02:36:16] [Client thread/INFO]: [CHAT] Banned mcheli:airframe2 * in 0
+[02:36:21] [Client thread/INFO]: [CHAT] keepInventory = false
+[02:36:25] [Client thread/INFO]: [CHAT] doMobLoot, doMobSpawning
+[02:36:26] [Client thread/INFO]: [CHAT] doMobLoot, doMobSpawning
+[02:36:26] [Server thread/INFO]: [Developer: Game rule has been updated]
+[02:36:26] [Client thread/INFO]: [CHAT] Game rule has been updated
+[02:36:29] [Client thread/INFO]: [CHAT] 156 entity killed(.).
+[02:36:33] [Client thread/INFO]: [CHAT] Duplicate ban list entry.
+[02:36:37] [Server thread/INFO]: Stopping server
+[02:36:37] [Server thread/INFO]: Saving players
+[02:36:37] [Server thread/INFO]: Saving worlds
+[02:36:37] [Server thread/INFO]: Saving chunks for level 'retard2'/Overworld
+[02:36:37] [Server thread/INFO]: Saving chunks for level 'retard2'/Nether
+[02:36:37] [Server thread/INFO]: Saving chunks for level 'retard2'/The End
+[02:36:40] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[02:36:40] [Server thread/INFO]: Generating keypair
+[02:36:40] [Server thread/INFO]: Preparing start region for level 0
+[02:36:40] [Server thread/INFO]: Changing view distance to 8, from 10
+[02:36:40] [Server thread/INFO]: Developer[local:E:6fbcfc5d] logged in with entity id 287829 at (-1689.042442851306, 4.0, 937.9700240172401)
+[02:36:40] [Server thread/INFO]: Developer joined the game
+[02:36:41] [Server thread/INFO]: Saving and pausing game...
+[02:36:41] [Server thread/INFO]: Saving chunks for level 'retard2'/Overworld
+[02:36:41] [Server thread/INFO]: Saving chunks for level 'retard2'/Nether
+[02:36:41] [Server thread/INFO]: Saving chunks for level 'retard2'/The End
+[02:36:44] [Server thread/INFO]: Saving and pausing game...
+[02:36:44] [Server thread/INFO]: Saving chunks for level 'retard2'/Overworld
+[02:36:44] [Server thread/INFO]: Saving chunks for level 'retard2'/Nether
+[02:36:44] [Server thread/INFO]: Saving chunks for level 'retard2'/The End
+[02:36:45] [Server thread/INFO]: Stopping server
+[02:36:45] [Server thread/INFO]: Saving players
+[02:36:45] [Server thread/INFO]: Saving worlds
+[02:36:45] [Server thread/INFO]: Saving chunks for level 'retard2'/Overworld
+[02:36:45] [Server thread/INFO]: Saving chunks for level 'retard2'/Nether
+[02:36:45] [Server thread/INFO]: Saving chunks for level 'retard2'/The End

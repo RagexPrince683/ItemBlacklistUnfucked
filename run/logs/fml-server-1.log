@@ -1,0 +1,582 @@
+[02:37:35] [main/DEBUG] [FML/]: Injecting tracing printstreams for STDOUT/STDERR.
+[02:37:35] [main/INFO] [FML/]: Forge Mod Loader version 7.99.40.1614 for Minecraft 1.7.10 loading
+[02:37:35] [main/INFO] [FML/]: Java is OpenJDK 64-Bit Server VM, version 1.8.0_422, running on Windows 10:amd64:10.0, installed at C:\Users\Owner\.jdks\azul-1.8.0_422\jre
+[02:37:35] [main/DEBUG] [FML/]: Java classpath at launch is C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\rfg\mclauncher-1.7.10.jar;C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\rfg\recompiled_minecraft-1.7.10.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraft\launchwrapper\1.12\111e7bea9c968cdb3d06ef4632bf7ff0824d0f36\launchwrapper-1.12.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.mojang\authlib\1.5.21\aefba0d5b53fbcb70860bc8046ab95d5854c07a5\authlib-1.5.21.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.typesafe.akka\akka-actor_2.11\2.3.3\ed62e9fc709ca0f2ff1a3220daa8b70a2870078e\akka-actor_2.11-2.3.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.typesafe\config\1.2.1\f771f71fdae3df231bcd54d5ca2d57f0bf93f467\config-1.2.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-actors-migration_2.11\1.1.0\dfa8bc42b181d5b9f1a5dd147f8ae308b893eb6f\scala-actors-migration_2.11-1.1.0.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-compiler\2.11.5\eb2631e425d240f55ffc060c3262caa4d05d8d1a\scala-compiler-2.11.5.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang.plugins\scala-continuations-library_2.11\1.0.2\e517c53a7e9acd6b1668c5a35eccbaa3bab9aac\scala-continuations-library_2.11-1.0.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang.plugins\scala-continuations-plugin_2.11.1\1.0.2\f361a3283452c57fa30c1ee69448995de23c60f7\scala-continuations-plugin_2.11.1-1.0.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.11.5\a5544bb030c5e6c3d81ad116b7dc5024f047df26\scala-library-2.11.5.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-parser-combinators_2.11\1.0.1\f05d7345bf5a58924f2837c6c1f4d73a938e1ff0\scala-parser-combinators_2.11-1.0.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-reflect\2.11.5\69ce65b0f0767c4e5eafaf789fdde7aab78bd9d\scala-reflect-2.11.5.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-swing_2.11\1.0.1\b1cdd92bd47b1e1837139c1c53020e86bb9112ae\scala-swing_2.11-1.0.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-xml_2.11\1.0.2\7a80ec00aec122fba7cd4e0d4cdd87ff7e4cb6d0\scala-xml_2.11-1.0.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\lzma\lzma\0.0.1\521616dc7487b42bef0e803bd2fa3faf668101d7\lzma-0.0.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-debug-all\5.0.3\f9e364ae2a66ce2a543012a4668856e84e5dab74\asm-debug-all-5.0.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\codecjorbis\20101023\c73b5636faf089d9f00e8732a829577de25237ee\codecjorbis-20101023.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\codecwav\20101023\12f031cfe88fef5c1dd36c563c0a3a69bd7261da\codecwav-20101023.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\libraryjavasound\20101123\5c5e304366f75f9eaa2e8cca546a1fb6109348b3\libraryjavasound-20101123.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\librarylwjglopenal\20100824\73e80d0794c39665aec3f62eee88ca91676674ef\librarylwjglopenal-20100824.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\soundsystem\20120107\419c05fe9be71f792b2d76cfc9b67f1ed0fec7f6\soundsystem-20120107.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.mojang\netty\1.8.8\a796914d1c8a55b4da9f4a8856dd9623375d8bb\netty-1.8.8.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.mojang\realms\1.3.5\807ae355ee63583becd7ea60e76aab1532bb42e\realms-1.3.5.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-compress\1.8.1\a698750c16740fd5b3871425f4cb3bbaa87f529d\commons-compress-1.8.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.3.3\18f4247ff4572a074444572cee34647c43e7c9c7\httpclient-4.3.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\commons-logging\commons-logging\1.1.3\f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f\commons-logging-1.1.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.3.2\31fbbff1ddbf98f3aa7377c94d33b0447c646b6e\httpcore-4.3.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\java3d\vecmath\1.3.1\a0ae4f51da409fa0c20fa0ca59e6bbc9413ae71d\vecmath-1.3.1.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.sf.trove4j\trove4j\3.0.3\42ccaf4761f0dfdfa805c9e340d99a755907e2dd\trove4j-3.0.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.ibm.icu\icu4j-core-mojang\51.2\63d216a9311cca6be337c1e458e587f99d382b84\icu4j-core-mojang-51.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.sf.jopt-simple\jopt-simple\4.5\6065cc95c661255349c1d0756657be17c29a4fd3\jopt-simple-4.5.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.0.10.Final\9e50bd52ffe257a0e2cd8d971688d6ce7d174325\netty-all-4.0.10.Final.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\17.0\9c6ef172e8de35fd8d4d8783e4821e57cdef7445\guava-17.0.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.3.2\90a3822c38ec8c996e84c16a3477ef632cbc87a3\commons-lang3-3.3.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\commons-io\commons-io\2.4\b1b6ea3b7e4aa4f492509a4952029cd8e48019ad\commons-io-2.4.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.9\9ce04e34240f674bc72680f8b843b1457383161a\commons-codec-1.9.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput\2.0.5\39c7796b469a600f72380316f6b1f11db6c2c7c4\jinput-2.0.5.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jutils\jutils\1.0.0\e12fe1fda814bd348c1579329c86943d2cd3c6a6\jutils-1.0.0.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-api\2.0-beta9-fixed\b61eaf2e64d8b0277e188262a8b771bbfa1502b3\log4j-api-2.0-beta9-fixed.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-core\2.0-beta9-fixed\677991ea2d7426f76309a73739cecf609679492c\log4j-core-2.0-beta9-fixed.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\385ee093e01f587f30ee1c8a2ee7d408fd732e16\jinput-platform-2.0.5-natives-windows.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\7ff832a6eb9ab6a767f1ade2b548092d0fa64795\jinput-platform-2.0.5-natives-linux.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\53f9c919f34d2ca9de8c51fc4e1e8282029a9232\jinput-platform-2.0.5-natives-osx.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch\5.16\1f55f009c61637c10c0acfb8b5ffc600f30044b4\twitch-5.16.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-platform\5.16\39d0c3d363735b4785598e0e7fbf8297c706a9f9\twitch-platform-5.16-natives-windows-64.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-platform\5.16\7c6affe439099806a4f552da14c42f9d643d8b23\twitch-platform-5.16-natives-windows-32.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-platform\5.16\62503ee712766cf77f97252e5902786fd834b8c5\twitch-platform-5.16-natives-osx.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-external-platform\4.5\c3cde57891b935d41b6680a9c5e1502eeab76d86\twitch-external-platform-4.5-natives-windows-64.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-external-platform\4.5\18215140f010c05b9f86ef6f0f8871954d2ccebf\twitch-external-platform-4.5-natives-windows-32.jar;C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\libs\ItemBlacklistUnfucked-1.2.0-dev.jar;C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\devmods\remapped\Mcheli Overdrive v2.1-deobf.jar;C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\devmods\remapped\NoMoreRecipeConflictFixed-0.3-deobf.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.github.GTNewHorizons\NotEnoughItems\2.8.118-GTNH\598a6d5249ea5a46bf2b59f93d0040cfa41db0c8\NotEnoughItems-2.8.118-GTNH-dev.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.github.GTNewHorizons\CodeChickenCore\1.4.17\7eade105310dc7bb0cccecb9d8611b60f169a574\CodeChickenCore-1.4.17-dev.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr4\4.13.2\a2bc0d399506a7297568baee188b481727d45d3b\antlr4-4.13.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr4-runtime\4.13.2\fc3db6d844df652a3d5db31c87fa12757f13691d\antlr4-runtime-4.13.2.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\ST4\4.3.4\bf68d049dd4e6e104055a79ac3bf9e6307d29258\ST4-4.3.4.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr-runtime\3.5.3\9011fb189c5ed6d99e5f3322514848d1ec1e1416\antlr-runtime-3.5.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.abego.treelayout\org.abego.treelayout.core\1.0.3\457216e8e6578099ae63667bb1e4439235892028\org.abego.treelayout.core-1.0.3.jar;C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.ibm.icu\icu4j\72.1\bc9057df4b5efddf7f6d1880bf7f3399f4ce5633\icu4j-72.1.jar
+[02:37:35] [main/DEBUG] [FML/]: Java library path at launch is C:\Users\Owner\.jdks\azul-1.8.0_422\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Eclipse Adoptium\jdk-21.0.8.9-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\bin;C:\Program Files\Zulu\zulu-8\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_241\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Eclipse Adoptium\jdk-8.0.462.8-hotspot\\bin;E:\fucc;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\Git\cmd;C:\mavenshit\apache-maven-3.9.9-bin\apache-maven-3.9.9\bin;C:\Program Files\Git\bin;C:\Program Files\Git\usr\bin;C:\Program Files\7-Zip;C:\ffmpeg\ffmpeg-8.0-essentials_build\bin;;C:\worldpainter;C:\worldpaintermodern\worldpainter;C:\Users\Owner\AppData\Local\Microsoft\WindowsApps;C:\Users\Owner\AppData\Local\GitHubDesktop\bin;C:\Users\Owner\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Owner\AppData\Local\JetBrains\Toolbox\scripts;;.
+[02:37:35] [main/INFO] [FML/]: Managed to load a deobfuscated Minecraft name- we are in a deobfuscated environment. Skipping runtime deobfuscation
+[02:37:35] [main/DEBUG] [FML/]: Instantiating coremod class FMLCorePlugin
+[02:37:35] [main/DEBUG] [FML/]: Added access transformer class cpw.mods.fml.common.asm.transformers.AccessTransformer to enqueued access transformers
+[02:37:35] [main/DEBUG] [FML/]: Enqueued coremod FMLCorePlugin
+[02:37:35] [main/DEBUG] [FML/]: Instantiating coremod class FMLForgePlugin
+[02:37:35] [main/DEBUG] [FML/]: Added access transformer class net.minecraftforge.transformers.ForgeAccessTransformer to enqueued access transformers
+[02:37:35] [main/DEBUG] [FML/]: Enqueued coremod FMLForgePlugin
+[02:37:35] [main/DEBUG] [FML/]: All fundamental core mods are successfully located
+[02:37:35] [main/INFO] [FML/]: Found a command line coremod : codechicken.nei.asm.NEICorePlugin
+[02:37:35] [main/DEBUG] [FML/]: Instantiating coremod class NEICorePlugin
+[02:37:35] [main/DEBUG] [FML/]: The coremod codechicken.nei.asm.NEICorePlugin requested minecraft version 1.7.10 and minecraft is 1.7.10. It will be loaded.
+[02:37:35] [main/DEBUG] [FML/]: Enqueued coremod NEICorePlugin
+[02:37:35] [main/INFO] [FML/]: Found a command line coremod : codechicken.core.launch.CodeChickenCorePlugin
+[02:37:35] [main/DEBUG] [FML/]: Instantiating coremod class CodeChickenCorePlugin
+[02:37:35] [main/DEBUG] [FML/]: The coremod codechicken.core.launch.CodeChickenCorePlugin requested minecraft version 1.7.10 and minecraft is 1.7.10. It will be loaded.
+[02:37:35] [main/DEBUG] [FML/]: Enqueued coremod CodeChickenCorePlugin
+[02:37:35] [main/DEBUG] [FML/]: Attempting to load commandline specified mods, relative to C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run\.
+[02:37:35] [main/DEBUG] [FML/]: Discovering coremods
+[02:37:35] [main/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.gradle.tweakers.CoremodTweaker
+[02:37:35] [main/INFO] [GradleStart/]: Injecting location in coremod cpw.mods.fml.relauncher.FMLCorePlugin
+[02:37:35] [main/INFO] [GradleStart/]: Injecting location in coremod net.minecraftforge.classloading.FMLForgePlugin
+[02:37:35] [main/INFO] [GradleStart/]: Injecting location in coremod codechicken.nei.asm.NEICorePlugin
+[02:37:35] [main/INFO] [GradleStart/]: Injecting location in coremod codechicken.core.launch.CodeChickenCorePlugin
+[02:37:35] [main/INFO] [LaunchWrapper/]: Loading tweak class name cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[02:37:35] [main/INFO] [LaunchWrapper/]: Loading tweak class name cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[02:37:35] [main/INFO] [LaunchWrapper/]: Loading tweak class name net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[02:37:35] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[02:37:35] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.common.launcher.FMLInjectionAndSortingTweaker
+[02:37:35] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[02:37:35] [main/DEBUG] [FML/]: Injecting coremod FMLCorePlugin {cpw.mods.fml.relauncher.FMLCorePlugin} class transformers
+[02:37:35] [main/TRACE] [FML/]: Registering transformer cpw.mods.fml.common.asm.transformers.MarkerTransformer
+[02:37:35] [main/TRACE] [FML/]: Registering transformer cpw.mods.fml.common.asm.transformers.SideTransformer
+[02:37:35] [main/TRACE] [FML/]: Registering transformer cpw.mods.fml.common.asm.transformers.EventSubscriptionTransformer
+[02:37:35] [main/DEBUG] [FML/]: Injection complete
+[02:37:35] [main/DEBUG] [FML/]: Running coremod plugin for FMLCorePlugin {cpw.mods.fml.relauncher.FMLCorePlugin}
+[02:37:35] [main/DEBUG] [FML/]: Running coremod plugin FMLCorePlugin
+[02:37:35] [main/ERROR] [FML/]: The binary patch set is missing. Either you are in a development environment, or things are not going to work!
+[02:37:35] [main/ERROR] [FML/]: FML appears to be missing any signature data. This is not a good thing
+[02:37:35] [main/DEBUG] [FML/]: Coremod plugin class FMLCorePlugin run successfully
+[02:37:35] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[02:37:35] [main/DEBUG] [FML/]: Injecting coremod FMLForgePlugin {net.minecraftforge.classloading.FMLForgePlugin} class transformers
+[02:37:35] [main/TRACE] [FML/]: Registering transformer net.minecraftforge.classloading.FluidIdTransformer
+[02:37:35] [main/DEBUG] [FML/]: Injection complete
+[02:37:35] [main/DEBUG] [FML/]: Running coremod plugin for FMLForgePlugin {net.minecraftforge.classloading.FMLForgePlugin}
+[02:37:35] [main/DEBUG] [FML/]: Running coremod plugin FMLForgePlugin
+[02:37:35] [main/DEBUG] [FML/]: Coremod plugin class FMLForgePlugin run successfully
+[02:37:35] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[02:37:35] [main/DEBUG] [FML/]: Injecting coremod NEICorePlugin {codechicken.nei.asm.NEICorePlugin} class transformers
+[02:37:35] [main/TRACE] [FML/]: Registering transformer codechicken.nei.asm.NEITransformer
+[02:37:36] [main/DEBUG] [FML/]: Injection complete
+[02:37:36] [main/DEBUG] [FML/]: Running coremod plugin for NEICorePlugin {codechicken.nei.asm.NEICorePlugin}
+[02:37:36] [main/DEBUG] [FML/]: Running coremod plugin NEICorePlugin
+[02:37:36] [main/DEBUG] [FML/]: Coremod plugin class NEICorePlugin run successfully
+[02:37:36] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.relauncher.CoreModManager$FMLPluginWrapper
+[02:37:36] [main/DEBUG] [FML/]: Injecting coremod CodeChickenCorePlugin {codechicken.core.launch.CodeChickenCorePlugin} class transformers
+[02:37:36] [main/TRACE] [FML/]: Registering transformer codechicken.lib.asm.ClassHeirachyManager
+[02:37:36] [main/TRACE] [FML/]: Registering transformer codechicken.lib.asm.RedirectorTransformer
+[02:37:36] [main/DEBUG] [FML/]: Injection complete
+[02:37:36] [main/DEBUG] [FML/]: Running coremod plugin for CodeChickenCorePlugin {codechicken.core.launch.CodeChickenCorePlugin}
+[02:37:36] [main/DEBUG] [FML/]: Running coremod plugin CodeChickenCorePlugin
+[02:37:36] [main/TRACE] [FML/]: Registering transformer codechicken.core.asm.TweakTransformer
+[02:37:36] [main/DEBUG] [CodeChickenCore/]: No delegated transformer found, skipping registration of main DelegatedTransformer.
+[02:37:36] [main/DEBUG] [FML/]: Coremod plugin class CodeChickenCorePlugin run successfully
+[02:37:36] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.common.launcher.FMLDeobfTweaker
+[02:37:36] [main/DEBUG] [FML/]: Loaded 57 rules from AccessTransformer config file fml_at.cfg
+[02:37:36] [main/DEBUG] [FML/]: Loaded 89 rules from AccessTransformer config file forge_at.cfg
+[02:37:36] [main/DEBUG] [FML/]: Loaded 13 rules from AccessTransformer mod jar file C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.github.GTNewHorizons\NotEnoughItems\2.8.118-GTNH\598a6d5249ea5a46bf2b59f93d0040cfa41db0c8\NotEnoughItems-2.8.118-GTNH-dev.jar!META-INF/nei_at.cfg
+
+[02:37:36] [main/DEBUG] [FML/]: Validating minecraft
+[02:37:36] [main/DEBUG] [FML/]: Minecraft validated, launching...
+[02:37:36] [main/INFO] [LaunchWrapper/]: Calling tweak class net.minecraftforge.gradle.tweakers.AccessTransformerTweaker
+[02:37:36] [main/DEBUG] [GradleStart/]: Reading CSV file: C:\Users\Owner\.gradle\caches\minecraft\net\minecraftforge\forge\1.7.10-10.13.4.1614-1.7.10\unpacked\conf\fields.csv
+[02:37:36] [main/DEBUG] [GradleStart/]: Reading CSV file: C:\Users\Owner\.gradle\caches\minecraft\net\minecraftforge\forge\1.7.10-10.13.4.1614-1.7.10\unpacked\conf\methods.csv
+[02:37:36] [main/INFO] [GradleStart/]: Remapping AccessTransformer rules...
+[02:37:36] [main/INFO] [LaunchWrapper/]: Loading tweak class name cpw.mods.fml.common.launcher.TerminalTweaker
+[02:37:36] [main/INFO] [LaunchWrapper/]: Calling tweak class cpw.mods.fml.common.launcher.TerminalTweaker
+[02:37:36] [main/INFO] [LaunchWrapper/]: Launching wrapped minecraft {net.minecraft.server.MinecraftServer}
+[02:37:36] [main/DEBUG] [CCL ASM/]: Writing method [net/minecraft/block/Block.canBeReplacedByLeaves(Lnet/minecraft/world/IBlockAccess;III)Z]
+[02:37:36] [main/DEBUG] [CCL ASM/]: Injecting before method [net/minecraft/nbt/NBTTagCompound.toString()Ljava/lang/String;] @ 51 - 55
+[02:37:36] [main/DEBUG] [CCL ASM/]: Injecting before method [net/minecraft/nbt/NBTTagList.toString()Ljava/lang/String;] @ 56 - 60
+[02:37:38] [Server thread/INFO] [MinecraftForge/]: Attempting early MinecraftForge initialization
+[02:37:38] [Server thread/INFO] [FML/]: MinecraftForge v10.13.4.1614 Initialized
+[02:37:38] [Server thread/INFO] [FML/]: Replaced 183 ore recipies
+[02:37:38] [Server thread/INFO] [MinecraftForge/]: Completed early MinecraftForge initialization
+[02:37:38] [Server thread/DEBUG] [FML/]: File C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run\config\injectedDependencies.json not found. No dependencies injected
+[02:37:38] [Server thread/DEBUG] [FML/]: Building injected Mod Containers [cpw.mods.fml.common.FMLContainer, net.minecraftforge.common.ForgeModContainer, codechicken.nei.NEIModContainer, codechicken.core.asm.CodeChickenCoreModContainer]
+[02:37:38] [Server thread/DEBUG] [FML/]: Attempting to load mods contained in the minecraft jar file and associated classes
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\rfg\mclauncher-1.7.10.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\rfg\recompiled_minecraft-1.7.10.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.minecraft\launchwrapper\1.12\111e7bea9c968cdb3d06ef4632bf7ff0824d0f36\launchwrapper-1.12.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.mojang\authlib\1.5.21\aefba0d5b53fbcb70860bc8046ab95d5854c07a5\authlib-1.5.21.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.typesafe.akka\akka-actor_2.11\2.3.3\ed62e9fc709ca0f2ff1a3220daa8b70a2870078e\akka-actor_2.11-2.3.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.typesafe\config\1.2.1\f771f71fdae3df231bcd54d5ca2d57f0bf93f467\config-1.2.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-actors-migration_2.11\1.1.0\dfa8bc42b181d5b9f1a5dd147f8ae308b893eb6f\scala-actors-migration_2.11-1.1.0.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-compiler\2.11.5\eb2631e425d240f55ffc060c3262caa4d05d8d1a\scala-compiler-2.11.5.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang.plugins\scala-continuations-library_2.11\1.0.2\e517c53a7e9acd6b1668c5a35eccbaa3bab9aac\scala-continuations-library_2.11-1.0.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang.plugins\scala-continuations-plugin_2.11.1\1.0.2\f361a3283452c57fa30c1ee69448995de23c60f7\scala-continuations-plugin_2.11.1-1.0.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-library\2.11.5\a5544bb030c5e6c3d81ad116b7dc5024f047df26\scala-library-2.11.5.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-parser-combinators_2.11\1.0.1\f05d7345bf5a58924f2837c6c1f4d73a938e1ff0\scala-parser-combinators_2.11-1.0.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-reflect\2.11.5\69ce65b0f0767c4e5eafaf789fdde7aab78bd9d\scala-reflect-2.11.5.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-swing_2.11\1.0.1\b1cdd92bd47b1e1837139c1c53020e86bb9112ae\scala-swing_2.11-1.0.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.scala-lang\scala-xml_2.11\1.0.2\7a80ec00aec122fba7cd4e0d4cdd87ff7e4cb6d0\scala-xml_2.11-1.0.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\lzma\lzma\0.0.1\521616dc7487b42bef0e803bd2fa3faf668101d7\lzma-0.0.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-debug-all\5.0.3\f9e364ae2a66ce2a543012a4668856e84e5dab74\asm-debug-all-5.0.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\codecjorbis\20101023\c73b5636faf089d9f00e8732a829577de25237ee\codecjorbis-20101023.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\codecwav\20101023\12f031cfe88fef5c1dd36c563c0a3a69bd7261da\codecwav-20101023.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\libraryjavasound\20101123\5c5e304366f75f9eaa2e8cca546a1fb6109348b3\libraryjavasound-20101123.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\librarylwjglopenal\20100824\73e80d0794c39665aec3f62eee88ca91676674ef\librarylwjglopenal-20100824.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.paulscode\soundsystem\20120107\419c05fe9be71f792b2d76cfc9b67f1ed0fec7f6\soundsystem-20120107.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.mojang\netty\1.8.8\a796914d1c8a55b4da9f4a8856dd9623375d8bb\netty-1.8.8.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.mojang\realms\1.3.5\807ae355ee63583becd7ea60e76aab1532bb42e\realms-1.3.5.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-compress\1.8.1\a698750c16740fd5b3871425f4cb3bbaa87f529d\commons-compress-1.8.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpclient\4.3.3\18f4247ff4572a074444572cee34647c43e7c9c7\httpclient-4.3.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\commons-logging\commons-logging\1.1.3\f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f\commons-logging-1.1.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.httpcomponents\httpcore\4.3.2\31fbbff1ddbf98f3aa7377c94d33b0447c646b6e\httpcore-4.3.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\java3d\vecmath\1.3.1\a0ae4f51da409fa0c20fa0ca59e6bbc9413ae71d\vecmath-1.3.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.sf.trove4j\trove4j\3.0.3\42ccaf4761f0dfdfa805c9e340d99a755907e2dd\trove4j-3.0.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.ibm.icu\icu4j-core-mojang\51.2\63d216a9311cca6be337c1e458e587f99d382b84\icu4j-core-mojang-51.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.sf.jopt-simple\jopt-simple\4.5\6065cc95c661255349c1d0756657be17c29a4fd3\jopt-simple-4.5.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\io.netty\netty-all\4.0.10.Final\9e50bd52ffe257a0e2cd8d971688d6ce7d174325\netty-all-4.0.10.Final.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\17.0\9c6ef172e8de35fd8d4d8783e4821e57cdef7445\guava-17.0.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.3.2\90a3822c38ec8c996e84c16a3477ef632cbc87a3\commons-lang3-3.3.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\commons-io\commons-io\2.4\b1b6ea3b7e4aa4f492509a4952029cd8e48019ad\commons-io-2.4.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.9\9ce04e34240f674bc72680f8b843b1457383161a\commons-codec-1.9.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput\2.0.5\39c7796b469a600f72380316f6b1f11db6c2c7c4\jinput-2.0.5.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jutils\jutils\1.0.0\e12fe1fda814bd348c1579329c86943d2cd3c6a6\jutils-1.0.0.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-api\2.0-beta9-fixed\b61eaf2e64d8b0277e188262a8b771bbfa1502b3\log4j-api-2.0-beta9-fixed.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.apache.logging.log4j\log4j-core\2.0-beta9-fixed\677991ea2d7426f76309a73739cecf609679492c\log4j-core-2.0-beta9-fixed.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\385ee093e01f587f30ee1c8a2ee7d408fd732e16\jinput-platform-2.0.5-natives-windows.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\7ff832a6eb9ab6a767f1ade2b548092d0fa64795\jinput-platform-2.0.5-natives-linux.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\net.java.jinput\jinput-platform\2.0.5\53f9c919f34d2ca9de8c51fc4e1e8282029a9232\jinput-platform-2.0.5-natives-osx.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch\5.16\1f55f009c61637c10c0acfb8b5ffc600f30044b4\twitch-5.16.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-platform\5.16\39d0c3d363735b4785598e0e7fbf8297c706a9f9\twitch-platform-5.16-natives-windows-64.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-platform\5.16\7c6affe439099806a4f552da14c42f9d643d8b23\twitch-platform-5.16-natives-windows-32.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-platform\5.16\62503ee712766cf77f97252e5902786fd834b8c5\twitch-platform-5.16-natives-osx.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-external-platform\4.5\c3cde57891b935d41b6680a9c5e1502eeab76d86\twitch-external-platform-4.5-natives-windows-64.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\tv.twitch\twitch-external-platform\4.5\18215140f010c05b9f86ef6f0f8871954d2ccebf\twitch-external-platform-4.5-natives-windows-32.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\libs\ItemBlacklistUnfucked-1.2.0-dev.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\devmods\remapped\Mcheli Overdrive v2.1-deobf.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\build\devmods\remapped\NoMoreRecipeConflictFixed-0.3-deobf.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.github.GTNewHorizons\NotEnoughItems\2.8.118-GTNH\598a6d5249ea5a46bf2b59f93d0040cfa41db0c8\NotEnoughItems-2.8.118-GTNH-dev.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.github.GTNewHorizons\CodeChickenCore\1.4.17\7eade105310dc7bb0cccecb9d8611b60f169a574\CodeChickenCore-1.4.17-dev.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr4\4.13.2\a2bc0d399506a7297568baee188b481727d45d3b\antlr4-4.13.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr4-runtime\4.13.2\fc3db6d844df652a3d5db31c87fa12757f13691d\antlr4-runtime-4.13.2.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\ST4\4.3.4\bf68d049dd4e6e104055a79ac3bf9e6307d29258\ST4-4.3.4.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr-runtime\3.5.3\9011fb189c5ed6d99e5f3322514848d1ec1e1416\antlr-runtime-3.5.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.abego.treelayout\org.abego.treelayout.core\1.0.3\457216e8e6578099ae63667bb1e4439235892028\org.abego.treelayout.core-1.0.3.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Found a minecraft related file at C:\Users\Owner\.gradle\caches\modules-2\files-2.1\com.ibm.icu\icu4j\72.1\bc9057df4b5efddf7f6d1880bf7f3399f4ce5633\icu4j-72.1.jar, examining for mod candidates
+[02:37:38] [Server thread/DEBUG] [FML/]: Minecraft jar mods loaded successfully
+[02:37:38] [Server thread/INFO] [FML/]: Found 0 mods from the command line. Injecting into mod discoverer
+[02:37:38] [Server thread/INFO] [FML/]: Searching C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run\mods for mods
+[02:37:38] [Server thread/DEBUG] [FML/]: Examining file mclauncher-1.7.10.jar for potential mods
+[02:37:38] [Server thread/DEBUG] [FML/]: The mod container mclauncher-1.7.10.jar appears to be missing an mcmod.info file
+[02:37:38] [Server thread/DEBUG] [FML/]: Examining file recompiled_minecraft-1.7.10.jar for potential mods
+[02:37:38] [Server thread/DEBUG] [FML/]: The mod container recompiled_minecraft-1.7.10.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file launchwrapper-1.12.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container launchwrapper-1.12.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file authlib-1.5.21.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container authlib-1.5.21.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file jsr305-2.0.1.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container jsr305-2.0.1.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file akka-actor_2.11-2.3.3.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container akka-actor_2.11-2.3.3.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file config-1.2.1.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container config-1.2.1.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file scala-actors-migration_2.11-1.1.0.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container scala-actors-migration_2.11-1.1.0.jar appears to be missing an mcmod.info file
+[02:37:39] [Server thread/DEBUG] [FML/]: Examining file scala-compiler-2.11.5.jar for potential mods
+[02:37:39] [Server thread/DEBUG] [FML/]: The mod container scala-compiler-2.11.5.jar appears to be missing an mcmod.info file
+[02:37:40] [Server thread/DEBUG] [FML/]: Examining file scala-continuations-library_2.11-1.0.2.jar for potential mods
+[02:37:40] [Server thread/DEBUG] [FML/]: The mod container scala-continuations-library_2.11-1.0.2.jar appears to be missing an mcmod.info file
+[02:37:40] [Server thread/DEBUG] [FML/]: Examining file scala-continuations-plugin_2.11.1-1.0.2.jar for potential mods
+[02:37:40] [Server thread/DEBUG] [FML/]: The mod container scala-continuations-plugin_2.11.1-1.0.2.jar appears to be missing an mcmod.info file
+[02:37:40] [Server thread/DEBUG] [FML/]: Examining file scala-library-2.11.5.jar for potential mods
+[02:37:40] [Server thread/DEBUG] [FML/]: The mod container scala-library-2.11.5.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file scala-parser-combinators_2.11-1.0.1.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container scala-parser-combinators_2.11-1.0.1.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file scala-reflect-2.11.5.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container scala-reflect-2.11.5.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file scala-swing_2.11-1.0.1.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container scala-swing_2.11-1.0.1.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file scala-xml_2.11-1.0.2.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container scala-xml_2.11-1.0.2.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file lzma-0.0.1.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container lzma-0.0.1.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file asm-debug-all-5.0.3.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container asm-debug-all-5.0.3.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file codecjorbis-20101023.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container codecjorbis-20101023.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file codecwav-20101023.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container codecwav-20101023.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file libraryjavasound-20101123.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container libraryjavasound-20101123.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file librarylwjglopenal-20100824.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container librarylwjglopenal-20100824.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file soundsystem-20120107.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container soundsystem-20120107.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file netty-1.8.8.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container netty-1.8.8.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file realms-1.3.5.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container realms-1.3.5.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file commons-compress-1.8.1.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container commons-compress-1.8.1.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file httpclient-4.3.3.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container httpclient-4.3.3.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file commons-logging-1.1.3.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container commons-logging-1.1.3.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file httpcore-4.3.2.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container httpcore-4.3.2.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file vecmath-1.3.1.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container vecmath-1.3.1.jar appears to be missing an mcmod.info file
+[02:37:41] [Server thread/DEBUG] [FML/]: Examining file trove4j-3.0.3.jar for potential mods
+[02:37:41] [Server thread/DEBUG] [FML/]: The mod container trove4j-3.0.3.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file icu4j-core-mojang-51.2.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container icu4j-core-mojang-51.2.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file jopt-simple-4.5.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container jopt-simple-4.5.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file netty-all-4.0.10.Final.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container netty-all-4.0.10.Final.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file guava-17.0.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container guava-17.0.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file commons-lang3-3.3.2.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container commons-lang3-3.3.2.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file commons-io-2.4.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container commons-io-2.4.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file commons-codec-1.9.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container commons-codec-1.9.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file jinput-2.0.5.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container jinput-2.0.5.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file jutils-1.0.0.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container jutils-1.0.0.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file gson-2.2.4.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container gson-2.2.4.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file log4j-api-2.0-beta9-fixed.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container log4j-api-2.0-beta9-fixed.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file log4j-core-2.0-beta9-fixed.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container log4j-core-2.0-beta9-fixed.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file jinput-platform-2.0.5-natives-windows.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container jinput-platform-2.0.5-natives-windows.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file jinput-platform-2.0.5-natives-linux.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container jinput-platform-2.0.5-natives-linux.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file jinput-platform-2.0.5-natives-osx.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container jinput-platform-2.0.5-natives-osx.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file twitch-5.16.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container twitch-5.16.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file twitch-platform-5.16-natives-windows-64.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container twitch-platform-5.16-natives-windows-64.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file twitch-platform-5.16-natives-windows-32.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container twitch-platform-5.16-natives-windows-32.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file twitch-platform-5.16-natives-osx.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container twitch-platform-5.16-natives-osx.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file twitch-external-platform-4.5-natives-windows-64.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container twitch-external-platform-4.5-natives-windows-64.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file twitch-external-platform-4.5-natives-windows-32.jar for potential mods
+[02:37:42] [Server thread/DEBUG] [FML/]: The mod container twitch-external-platform-4.5-natives-windows-32.jar appears to be missing an mcmod.info file
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file ItemBlacklistUnfucked-1.2.0-dev.jar for potential mods
+[02:37:42] [Server thread/TRACE] [FML/]: Located mcmod.info file in file ItemBlacklistUnfucked-1.2.0-dev.jar
+[02:37:42] [Server thread/DEBUG] [FML/]: Identified a mod of type Lcpw/mods/fml/common/Mod; (net.doubledoordev.itemblacklist.ItemBlacklist) - loading
+[02:37:42] [Server thread/TRACE] [ItemBlacklist/]: Parsed dependency info : [] [] [*]
+[02:37:42] [Server thread/DEBUG] [ItemBlacklist/]: Attempting to load the file version.properties from ItemBlacklistUnfucked-1.2.0-dev.jar to locate a version number for ItemBlacklist
+[02:37:42] [Server thread/WARN] [ItemBlacklist/]: Mod ItemBlacklist is missing the required element 'version' and a version.properties file could not be found. Falling back to metadata version 1.2.0
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file Mcheli Overdrive v2.1-deobf.jar for potential mods
+[02:37:42] [Server thread/TRACE] [FML/]: Located mcmod.info file in file Mcheli Overdrive v2.1-deobf.jar
+[02:37:42] [Server thread/DEBUG] [FML/]: Identified a mod of type Lcpw/mods/fml/common/Mod; (mcheli.MCH_MOD) - loading
+[02:37:42] [Server thread/TRACE] [mcheli/]: Parsed dependency info : [Forge@[10.13.2.1230,)] [Forge@[10.13.2.1230,)] []
+[02:37:42] [Server thread/DEBUG] [mcheli/]: Attempting to load the file version.properties from Mcheli Overdrive v2.1-deobf.jar to locate a version number for mcheli
+[02:37:42] [Server thread/WARN] [mcheli/]: Mod mcheli is missing the required element 'version' and a version.properties file could not be found. Falling back to metadata version 2.1
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file NoMoreRecipeConflictFixed-0.3-deobf.jar for potential mods
+[02:37:42] [Server thread/TRACE] [FML/]: Located mcmod.info file in file NoMoreRecipeConflictFixed-0.3-deobf.jar
+[02:37:42] [Server thread/DEBUG] [FML/]: Identified a mod of type Lcpw/mods/fml/common/Mod; (assets.recipehandler.RecipeMod) - loading
+[02:37:42] [Server thread/TRACE] [recipehandlerRC/]: Parsed dependency info : [] [] []
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file NotEnoughItems-2.8.118-GTNH-dev.jar for potential mods
+[02:37:42] [Server thread/TRACE] [FML/]: Located mcmod.info file in file NotEnoughItems-2.8.118-GTNH-dev.jar
+[02:37:42] [Server thread/DEBUG] [FML/]: Examining file CodeChickenCore-1.4.17-dev.jar for potential mods
+[02:37:42] [Server thread/TRACE] [FML/]: Located mcmod.info file in file CodeChickenCore-1.4.17-dev.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: Examining file antlr4-4.13.2.jar for potential mods
+[02:37:43] [Server thread/DEBUG] [FML/]: The mod container antlr4-4.13.2.jar appears to be missing an mcmod.info file
+[02:37:43] [Server thread/ERROR] [FML/]: Unable to read a class file correctly
+java.lang.IllegalArgumentException
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:170) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:153) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:424) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at cpw.mods.fml.common.discovery.asm.ASMModParser.<init>(ASMModParser.java:52) [ASMModParser.class:?]
+	at cpw.mods.fml.common.discovery.JarDiscoverer.discover(JarDiscoverer.java:72) [JarDiscoverer.class:?]
+	at cpw.mods.fml.common.discovery.ContainerType.findMods(ContainerType.java:42) [ContainerType.class:?]
+	at cpw.mods.fml.common.discovery.ModCandidate.explore(ModCandidate.java:71) [ModCandidate.class:?]
+	at cpw.mods.fml.common.discovery.ModDiscoverer.identifyMods(ModDiscoverer.java:131) [ModDiscoverer.class:?]
+	at cpw.mods.fml.common.Loader.identifyMods(Loader.java:364) [Loader.class:?]
+	at cpw.mods.fml.common.Loader.loadMods(Loader.java:489) [Loader.class:?]
+	at cpw.mods.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:87) [FMLServerHandler.class:?]
+	at cpw.mods.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:314) [FMLCommonHandler.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:120) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:445) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752) [MinecraftServer$2.class:?]
+[02:37:43] [Server thread/ERROR] [FML/]: There was a problem reading the entry org/antlr/v4/Tool$1UndefChecker.class in the jar C:\Users\Owner\.gradle\caches\modules-2\files-2.1\org.antlr\antlr4\4.13.2\a2bc0d399506a7297568baee188b481727d45d3b\antlr4-4.13.2.jar - probably a corrupt zip
+cpw.mods.fml.common.LoaderException: java.lang.IllegalArgumentException
+
+	at cpw.mods.fml.common.discovery.asm.ASMModParser.<init>(ASMModParser.java:58) ~[ASMModParser.class:?]
+	at cpw.mods.fml.common.discovery.JarDiscoverer.discover(JarDiscoverer.java:72) [JarDiscoverer.class:?]
+	at cpw.mods.fml.common.discovery.ContainerType.findMods(ContainerType.java:42) [ContainerType.class:?]
+	at cpw.mods.fml.common.discovery.ModCandidate.explore(ModCandidate.java:71) [ModCandidate.class:?]
+	at cpw.mods.fml.common.discovery.ModDiscoverer.identifyMods(ModDiscoverer.java:131) [ModDiscoverer.class:?]
+	at cpw.mods.fml.common.Loader.identifyMods(Loader.java:364) [Loader.class:?]
+	at cpw.mods.fml.common.Loader.loadMods(Loader.java:489) [Loader.class:?]
+	at cpw.mods.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:87) [FMLServerHandler.class:?]
+	at cpw.mods.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:314) [FMLCommonHandler.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:120) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:445) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752) [MinecraftServer$2.class:?]
+Caused by: java.lang.IllegalArgumentException
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:170) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:153) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:424) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at cpw.mods.fml.common.discovery.asm.ASMModParser.<init>(ASMModParser.java:52) ~[ASMModParser.class:?]
+	... 11 more
+[02:37:43] [Server thread/WARN] [FML/]: Zip file antlr4-4.13.2.jar failed to read properly, it will be ignored
+cpw.mods.fml.common.LoaderException: java.lang.IllegalArgumentException
+
+	at cpw.mods.fml.common.discovery.asm.ASMModParser.<init>(ASMModParser.java:58) ~[ASMModParser.class:?]
+	at cpw.mods.fml.common.discovery.JarDiscoverer.discover(JarDiscoverer.java:72) [JarDiscoverer.class:?]
+	at cpw.mods.fml.common.discovery.ContainerType.findMods(ContainerType.java:42) [ContainerType.class:?]
+	at cpw.mods.fml.common.discovery.ModCandidate.explore(ModCandidate.java:71) [ModCandidate.class:?]
+	at cpw.mods.fml.common.discovery.ModDiscoverer.identifyMods(ModDiscoverer.java:131) [ModDiscoverer.class:?]
+	at cpw.mods.fml.common.Loader.identifyMods(Loader.java:364) [Loader.class:?]
+	at cpw.mods.fml.common.Loader.loadMods(Loader.java:489) [Loader.class:?]
+	at cpw.mods.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:87) [FMLServerHandler.class:?]
+	at cpw.mods.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:314) [FMLCommonHandler.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:120) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:445) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752) [MinecraftServer$2.class:?]
+Caused by: java.lang.IllegalArgumentException
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:170) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:153) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at org.objectweb.asm.ClassReader.<init>(ClassReader.java:424) ~[asm-debug-all-5.0.3.jar:5.0.3]
+	at cpw.mods.fml.common.discovery.asm.ASMModParser.<init>(ASMModParser.java:52) ~[ASMModParser.class:?]
+	... 11 more
+[02:37:43] [Server thread/DEBUG] [FML/]: Examining file antlr4-runtime-4.13.2.jar for potential mods
+[02:37:43] [Server thread/DEBUG] [FML/]: The mod container antlr4-runtime-4.13.2.jar appears to be missing an mcmod.info file
+[02:37:43] [Server thread/DEBUG] [FML/]: Examining file ST4-4.3.4.jar for potential mods
+[02:37:43] [Server thread/DEBUG] [FML/]: The mod container ST4-4.3.4.jar appears to be missing an mcmod.info file
+[02:37:43] [Server thread/DEBUG] [FML/]: Examining file antlr-runtime-3.5.3.jar for potential mods
+[02:37:43] [Server thread/DEBUG] [FML/]: The mod container antlr-runtime-3.5.3.jar appears to be missing an mcmod.info file
+[02:37:43] [Server thread/DEBUG] [FML/]: Examining file org.abego.treelayout.core-1.0.3.jar for potential mods
+[02:37:43] [Server thread/DEBUG] [FML/]: The mod container org.abego.treelayout.core-1.0.3.jar appears to be missing an mcmod.info file
+[02:37:43] [Server thread/DEBUG] [FML/]: Examining file icu4j-72.1.jar for potential mods
+[02:37:43] [Server thread/DEBUG] [FML/]: The mod container icu4j-72.1.jar appears to be missing an mcmod.info file
+[02:37:43] [Server thread/INFO] [FML/]: Forge Mod Loader has identified 8 mods to load
+[02:37:43] [Server thread/TRACE] [FML/]: Received a system property request ''
+[02:37:43] [Server thread/TRACE] [FML/]: System property request managing the state of 0 mods
+[02:37:43] [Server thread/DEBUG] [FML/]: After merging, found state information for 0 mods
+[02:37:43] [Server thread/DEBUG] [FML/]: Found translations in recompiled_minecraft-1.7.10.jar [en_US, af_ZA, ar_SA, br_FR, ca_ES, cs_CZ, da_DK, de_DE, el_GR, en_US, es_ES, fa_IR, fi_FI, fr_FR, he_IL, hu_HU, it_IT, ja_JP, ko_KR, lt_LT, nb_NO, nl_NL, nn_NO, no_NO, pl_PL, pt_BR, pt_PT, ro_RO, ru_RU, sl_SI, sr_SP, sv_SE, tr_TR, uk_UA, vi_VN, zh_CN, zh_TW, en_US]
+[02:37:43] [Server thread/DEBUG] [FML/]: Found translations in recompiled_minecraft-1.7.10.jar [en_US, af_ZA, ar_SA, br_FR, ca_ES, cs_CZ, da_DK, de_DE, el_GR, en_US, es_ES, fa_IR, fi_FI, fr_FR, he_IL, hu_HU, it_IT, ja_JP, ko_KR, lt_LT, nb_NO, nl_NL, nn_NO, no_NO, pl_PL, pt_BR, pt_PT, ro_RO, ru_RU, sl_SI, sr_SP, sv_SE, tr_TR, uk_UA, vi_VN, zh_CN, zh_TW, en_US]
+[02:37:43] [Server thread/DEBUG] [FML/]: Found translations in NotEnoughItems-2.8.118-GTNH-dev.jar [cs_CZ, de_DE, en_US, et_EE, fr_FR, it_IT, ko_KR, pl_PL, pt_BR, ru_RU, sk_SK, tr_TR, zh_CN, zh_TW]
+[02:37:43] [Server thread/DEBUG] [ItemBlacklist/]: Enabling mod ItemBlacklist
+[02:37:43] [Server thread/DEBUG] [mcheli/]: Enabling mod mcheli
+[02:37:43] [Server thread/DEBUG] [FML/]: Found translations in Mcheli Overdrive v2.1-deobf.jar [de_de, en_en, en_us, ja_jp, ko_kr, ru_ru, ua_ua, uk_ua, zh_cn]
+[02:37:43] [Server thread/DEBUG] [recipehandlerRC/]: Enabling mod recipehandlerRC
+[02:37:43] [Server thread/DEBUG] [FML/]: Found translations in NoMoreRecipeConflictFixed-0.3-deobf.jar [en_US, ru_RU]
+[02:37:43] [Server thread/TRACE] [FML/]: Verifying mod requirements are satisfied
+[02:37:43] [Server thread/TRACE] [FML/]: All mod requirements are satisfied
+[02:37:43] [Server thread/TRACE] [FML/]: Sorting mods into an ordered list
+[02:37:43] [Server thread/TRACE] [FML/]: Mod sorting completed successfully
+[02:37:43] [Server thread/DEBUG] [FML/]: Mod sorting data
+[02:37:43] [Server thread/DEBUG] [FML/]: 	ItemBlacklist(ItemBlacklist:1.2.0): ItemBlacklistUnfucked-1.2.0-dev.jar (before:*)
+[02:37:43] [Server thread/DEBUG] [FML/]: 	mcheli(MC Helicopter Overdrive+:2.1): Mcheli Overdrive v2.1-deobf.jar (required-after:Forge@[10.13.2.1230,))
+[02:37:43] [Server thread/DEBUG] [FML/]: 	recipehandlerRC(NoMoreRecipeConflict:0.3): NoMoreRecipeConflictFixed-0.3-deobf.jar ()
+[02:37:43] [Server thread/TRACE] [mcp/mcp]: Sending event FMLConstructionEvent to mod mcp
+[02:37:43] [Server thread/TRACE] [mcp/mcp]: Sent event FMLConstructionEvent to mod mcp
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - Minecraft Coder Pack took 0.001s
+[02:37:43] [Server thread/TRACE] [FML/FML]: Sending event FMLConstructionEvent to mod FML
+[02:37:43] [Server thread/TRACE] [FML/FML]: Mod FML is using network checker : Invoking method checkModLists
+[02:37:43] [Server thread/TRACE] [FML/FML]: Testing mod FML to verify it accepts its own version in a remote connection
+[02:37:43] [Server thread/TRACE] [FML/FML]: The mod FML accepts its own version (7.10.99.99)
+[02:37:43] [Server thread/INFO] [FML/FML]: Attempting connection with missing mods [mcp, FML, Forge, NotEnoughItems, CodeChickenCore, ItemBlacklist, mcheli, recipehandlerRC] at CLIENT
+[02:37:43] [Server thread/INFO] [FML/FML]: Attempting connection with missing mods [mcp, FML, Forge, NotEnoughItems, CodeChickenCore, ItemBlacklist, mcheli, recipehandlerRC] at SERVER
+[02:37:43] [Server thread/TRACE] [FML/FML]: Sent event FMLConstructionEvent to mod FML
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - Forge Mod Loader took 0.137s
+[02:37:43] [Server thread/TRACE] [Forge/Forge]: Sending event FMLConstructionEvent to mod Forge
+[02:37:43] [Server thread/TRACE] [FML/Forge]: Mod Forge is using network checker : No network checking performed
+[02:37:43] [Server thread/TRACE] [FML/Forge]: Testing mod Forge to verify it accepts its own version in a remote connection
+[02:37:43] [Server thread/TRACE] [FML/Forge]: The mod Forge accepts its own version (10.13.4.1614)
+[02:37:43] [Server thread/TRACE] [Forge/Forge]: Sent event FMLConstructionEvent to mod Forge
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - Minecraft Forge took 0.003s
+[02:37:43] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sending event FMLConstructionEvent to mod NotEnoughItems
+[02:37:43] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sent event FMLConstructionEvent to mod NotEnoughItems
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - NotEnoughItems took 0.000s
+[02:37:43] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sending event FMLConstructionEvent to mod CodeChickenCore
+[02:37:43] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sent event FMLConstructionEvent to mod CodeChickenCore
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - CodeChicken Core took 0.000s
+[02:37:43] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sending event FMLConstructionEvent to mod ItemBlacklist
+[02:37:43] [Server thread/TRACE] [FML/ItemBlacklist]: Mod ItemBlacklist is using network checker : Accepting version 1.2.0
+[02:37:43] [Server thread/TRACE] [FML/ItemBlacklist]: Testing mod ItemBlacklist to verify it accepts its own version in a remote connection
+[02:37:43] [Server thread/TRACE] [FML/ItemBlacklist]: The mod ItemBlacklist accepts its own version (1.2.0)
+[02:37:43] [Server thread/DEBUG] [FML/ItemBlacklist]: Attempting to inject @SidedProxy classes into ItemBlacklist
+[02:37:43] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sent event FMLConstructionEvent to mod ItemBlacklist
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - ItemBlacklist took 0.008s
+[02:37:43] [Server thread/TRACE] [mcheli/mcheli]: Sending event FMLConstructionEvent to mod mcheli
+[02:37:43] [Server thread/TRACE] [FML/mcheli]: Mod mcheli is using network checker : Accepting version 2.1
+[02:37:43] [Server thread/TRACE] [FML/mcheli]: Testing mod mcheli to verify it accepts its own version in a remote connection
+[02:37:43] [Server thread/TRACE] [FML/mcheli]: The mod mcheli accepts its own version (2.1)
+[02:37:43] [Server thread/DEBUG] [FML/mcheli]: Attempting to inject @SidedProxy classes into mcheli
+[02:37:43] [Server thread/TRACE] [mcheli/mcheli]: Sent event FMLConstructionEvent to mod mcheli
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - MC Helicopter Overdrive+ took 0.068s
+[02:37:43] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sending event FMLConstructionEvent to mod recipehandlerRC
+[02:37:43] [Server thread/TRACE] [FML/recipehandlerRC]: Mod recipehandlerRC is using network checker : Accepting version 0.3
+[02:37:43] [Server thread/TRACE] [FML/recipehandlerRC]: Testing mod recipehandlerRC to verify it accepts its own version in a remote connection
+[02:37:43] [Server thread/TRACE] [FML/recipehandlerRC]: The mod recipehandlerRC accepts its own version (0.3)
+[02:37:43] [Server thread/DEBUG] [FML/recipehandlerRC]: Attempting to inject @SidedProxy classes into recipehandlerRC
+[02:37:43] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sent event FMLConstructionEvent to mod recipehandlerRC
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: Construction - NoMoreRecipeConflict took 0.007s
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Finished: Construction took 0.225s
+[02:37:43] [Server thread/DEBUG] [FML/]: Mod signature data
+[02:37:43] [Server thread/DEBUG] [FML/]:  	Valid Signatures:
+[02:37:43] [Server thread/DEBUG] [FML/]:  	Missing Signatures:
+[02:37:43] [Server thread/DEBUG] [FML/]: 		mcp	(Minecraft Coder Pack	9.05)	minecraft.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		FML	(Forge Mod Loader	7.10.99.99)	recompiled_minecraft-1.7.10.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		Forge	(Minecraft Forge	10.13.4.1614)	recompiled_minecraft-1.7.10.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		NotEnoughItems	(NotEnoughItems	2.8.118-GTNH)	NotEnoughItems-2.8.118-GTNH-dev.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		CodeChickenCore	(CodeChicken Core	1.4.17)	minecraft.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		ItemBlacklist	(ItemBlacklist	1.2.0)	ItemBlacklistUnfucked-1.2.0-dev.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		mcheli	(MC Helicopter Overdrive+	2.1)	Mcheli Overdrive v2.1-deobf.jar
+[02:37:43] [Server thread/DEBUG] [FML/]: 		recipehandlerRC	(NoMoreRecipeConflict	0.3)	NoMoreRecipeConflictFixed-0.3-deobf.jar
+[02:37:43] [Server thread/INFO] [FML/]: Processing ObjectHolder annotations
+[02:37:43] [Server thread/INFO] [FML/]: Found 341 ObjectHolder annotations
+[02:37:43] [Server thread/INFO] [FML/]: Identifying ItemStackHolder annotations
+[02:37:43] [Server thread/INFO] [FML/]: Found 0 ItemStackHolder annotations
+[02:37:43] [Server thread/TRACE] [mcp/mcp]: Sending event FMLPreInitializationEvent to mod mcp
+[02:37:43] [Server thread/TRACE] [mcp/mcp]: Sent event FMLPreInitializationEvent to mod mcp
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - Minecraft Coder Pack took 0.001s
+[02:37:43] [Server thread/TRACE] [FML/FML]: Sending event FMLPreInitializationEvent to mod FML
+[02:37:43] [Server thread/TRACE] [FML/FML]: Sent event FMLPreInitializationEvent to mod FML
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - Forge Mod Loader took 0.000s
+[02:37:43] [Server thread/TRACE] [Forge/Forge]: Sending event FMLPreInitializationEvent to mod Forge
+[02:37:43] [Server thread/INFO] [FML/Forge]: Configured a dormant chunk cache size of 0
+[02:37:43] [Server thread/TRACE] [Forge/Forge]: Sent event FMLPreInitializationEvent to mod Forge
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - Minecraft Forge took 0.049s
+[02:37:43] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sending event FMLPreInitializationEvent to mod NotEnoughItems
+[02:37:43] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sent event FMLPreInitializationEvent to mod NotEnoughItems
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - NotEnoughItems took 0.003s
+[02:37:43] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sending event FMLPreInitializationEvent to mod CodeChickenCore
+[02:37:43] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sent event FMLPreInitializationEvent to mod CodeChickenCore
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - CodeChicken Core took 0.003s
+[02:37:43] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sending event FMLPreInitializationEvent to mod ItemBlacklist
+[02:37:43] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sent event FMLPreInitializationEvent to mod ItemBlacklist
+[02:37:43] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - ItemBlacklist took 0.007s
+[02:37:43] [Server thread/TRACE] [mcheli/mcheli]: Sending event FMLPreInitializationEvent to mod mcheli
+[02:37:43] [Server thread/INFO] [mcheli/mcheli]: [Server] loaded C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run\.\config\mcheli.cfg
+[02:37:43] [Server thread/INFO] [mcheli/mcheli]: [Server] update C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run\.\config\mcheli.cfg
+[02:37:43] [Server thread/INFO] [mcheli/mcheli]: [Server] MC Ver:1.7.10 MOD Ver:2.1
+[02:37:43] [Server thread/INFO] [mcheli/mcheli]: [Server] Start load...
+[02:37:44] [Server thread/INFO] [mcheli/mcheli]: [Server] MCH_ResourceHelper: Addon directory: C:\Users\Owner\Documents\Downloads\bullshit\ItemBlacklistUnfucked\run\mcheli_addons (0 asset roots)
+[02:37:44] [Server thread/TRACE] [mcheli/mcheli]: Sent event FMLPreInitializationEvent to mod mcheli
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - MC Helicopter Overdrive+ took 0.210s
+[02:37:44] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sending event FMLPreInitializationEvent to mod recipehandlerRC
+[02:37:44] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sent event FMLPreInitializationEvent to mod recipehandlerRC
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: PreInitialization - NoMoreRecipeConflict took 0.013s
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Finished: PreInitialization took 0.286s
+[02:37:44] [Server thread/INFO] [FML/]: Applying holder lookups
+[02:37:44] [Server thread/INFO] [FML/]: Holder lookups applied
+[02:37:44] [Server thread/INFO] [FML/]: Injecting itemstacks
+[02:37:44] [Server thread/INFO] [FML/]: Itemstack injection complete
+[02:37:44] [Server thread/ERROR] [FML/]: Fatal errors were detected during the transition from PREINITIALIZATION to INITIALIZATION. Loading cannot continue
+[02:37:44] [Server thread/ERROR] [FML/]: 
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCH	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCH	FML{7.10.99.99} [Forge Mod Loader] (recompiled_minecraft-1.7.10.jar) 
+	UCH	Forge{10.13.4.1614} [Minecraft Forge] (recompiled_minecraft-1.7.10.jar) 
+	UCH	NotEnoughItems{2.8.118-GTNH} [NotEnoughItems] (NotEnoughItems-2.8.118-GTNH-dev.jar) 
+	UCH	CodeChickenCore{1.4.17} [CodeChicken Core] (minecraft.jar) 
+	UCH	ItemBlacklist{1.2.0} [ItemBlacklist] (ItemBlacklistUnfucked-1.2.0-dev.jar) 
+	UCE	mcheli{2.1} [MC Helicopter Overdrive+] (Mcheli Overdrive v2.1-deobf.jar) 
+	UCH	recipehandlerRC{0.3} [NoMoreRecipeConflict] (NoMoreRecipeConflictFixed-0.3-deobf.jar) 
+[02:37:44] [Server thread/ERROR] [FML/]: The following problems were captured during this phase
+[02:37:44] [Server thread/ERROR] [FML/]: Caught exception from mcheli
+java.lang.NoClassDefFoundError: mcheli/MCH_AddonResourcePack
+	at mcheli.MCH_MOD.PreInit(MCH_MOD.java:230) ~[MCH_MOD.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_422]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_422]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_422]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_422]
+	at cpw.mods.fml.common.FMLModContainer.handleModStateEvent(FMLModContainer.java:532) ~[FMLModContainer.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_422]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_422]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_422]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_422]
+	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.EventBus.post(EventBus.java:275) ~[guava-17.0.jar:?]
+	at cpw.mods.fml.common.LoadController.sendEventToModContainer(LoadController.java:212) ~[LoadController.class:?]
+	at cpw.mods.fml.common.LoadController.propogateStateMessage(LoadController.java:190) ~[LoadController.class:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_422]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_422]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_422]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_422]
+	at com.google.common.eventbus.EventSubscriber.handleEvent(EventSubscriber.java:74) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.SynchronizedEventSubscriber.handleEvent(SynchronizedEventSubscriber.java:47) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.EventBus.dispatch(EventBus.java:322) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.EventBus.dispatchQueuedEvents(EventBus.java:304) ~[guava-17.0.jar:?]
+	at com.google.common.eventbus.EventBus.post(EventBus.java:275) ~[guava-17.0.jar:?]
+	at cpw.mods.fml.common.LoadController.distributeStateMessage(LoadController.java:119) [LoadController.class:?]
+	at cpw.mods.fml.common.Loader.preinitializeMods(Loader.java:556) [Loader.class:?]
+	at cpw.mods.fml.server.FMLServerHandler.beginServerLoading(FMLServerHandler.java:88) [FMLServerHandler.class:?]
+	at cpw.mods.fml.common.FMLCommonHandler.onServerStart(FMLCommonHandler.java:314) [FMLCommonHandler.class:?]
+	at net.minecraft.server.dedicated.DedicatedServer.startServer(DedicatedServer.java:120) [DedicatedServer.class:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:445) [MinecraftServer.class:?]
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752) [MinecraftServer$2.class:?]
+Caused by: java.lang.ClassNotFoundException: mcheli.MCH_AddonResourcePack
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:191) ~[launchwrapper-1.12.jar:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:419) ~[?:1.8.0_422]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:352) ~[?:1.8.0_422]
+	... 33 more
+Caused by: java.lang.RuntimeException: Attempted to load class mcheli/MCH_AddonResourcePack for invalid side SERVER
+	at cpw.mods.fml.common.asm.transformers.SideTransformer.transform(SideTransformer.java:50) ~[recompiled_minecraft-1.7.10.jar:?]
+	at net.minecraft.launchwrapper.LaunchClassLoader.runTransformers(LaunchClassLoader.java:279) ~[launchwrapper-1.12.jar:?]
+	at net.minecraft.launchwrapper.LaunchClassLoader.findClass(LaunchClassLoader.java:176) ~[launchwrapper-1.12.jar:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:419) ~[?:1.8.0_422]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:352) ~[?:1.8.0_422]
+	... 33 more
+[02:37:44] [Server thread/WARN] [FML/]: Can't revert to frozen GameData state without freezing first.
+[02:37:44] [Server thread/TRACE] [mcp/mcp]: Sending event FMLModIdMappingEvent to mod mcp
+[02:37:44] [Server thread/TRACE] [mcp/mcp]: Sent event FMLModIdMappingEvent to mod mcp
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - Minecraft Coder Pack took 0.000s
+[02:37:44] [Server thread/TRACE] [FML/FML]: Sending event FMLModIdMappingEvent to mod FML
+[02:37:44] [Server thread/TRACE] [FML/FML]: Sent event FMLModIdMappingEvent to mod FML
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - Forge Mod Loader took 0.000s
+[02:37:44] [Server thread/TRACE] [Forge/Forge]: Sending event FMLModIdMappingEvent to mod Forge
+[02:37:44] [Server thread/TRACE] [Forge/Forge]: Sent event FMLModIdMappingEvent to mod Forge
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - Minecraft Forge took 0.005s
+[02:37:44] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sending event FMLModIdMappingEvent to mod NotEnoughItems
+[02:37:44] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sent event FMLModIdMappingEvent to mod NotEnoughItems
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - NotEnoughItems took 0.000s
+[02:37:44] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sending event FMLModIdMappingEvent to mod CodeChickenCore
+[02:37:44] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sent event FMLModIdMappingEvent to mod CodeChickenCore
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - CodeChicken Core took 0.000s
+[02:37:44] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sending event FMLModIdMappingEvent to mod ItemBlacklist
+[02:37:44] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sent event FMLModIdMappingEvent to mod ItemBlacklist
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - ItemBlacklist took 0.000s
+[02:37:44] [Server thread/TRACE] [mcheli/mcheli]: Sending event FMLModIdMappingEvent to mod mcheli
+[02:37:44] [Server thread/TRACE] [mcheli/mcheli]: Sent event FMLModIdMappingEvent to mod mcheli
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - MC Helicopter Overdrive+ took 0.001s
+[02:37:44] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sending event FMLModIdMappingEvent to mod recipehandlerRC
+[02:37:44] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sent event FMLModIdMappingEvent to mod recipehandlerRC
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ModIdMapping - NoMoreRecipeConflict took 0.000s
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Finished: ModIdMapping took 0.008s
+[02:37:44] [Server thread/INFO] [FML/]: Applying holder lookups
+[02:37:44] [Server thread/INFO] [FML/]: Holder lookups applied
+[02:37:44] [Server thread/TRACE] [mcp/mcp]: Sending event FMLServerStoppedEvent to mod mcp
+[02:37:44] [Server thread/TRACE] [mcp/mcp]: Sent event FMLServerStoppedEvent to mod mcp
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - Minecraft Coder Pack took 0.000s
+[02:37:44] [Server thread/TRACE] [FML/FML]: Sending event FMLServerStoppedEvent to mod FML
+[02:37:44] [Server thread/TRACE] [FML/FML]: Sent event FMLServerStoppedEvent to mod FML
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - Forge Mod Loader took 0.000s
+[02:37:44] [Server thread/TRACE] [Forge/Forge]: Sending event FMLServerStoppedEvent to mod Forge
+[02:37:44] [Server thread/TRACE] [Forge/Forge]: Sent event FMLServerStoppedEvent to mod Forge
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - Minecraft Forge took 0.000s
+[02:37:44] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sending event FMLServerStoppedEvent to mod NotEnoughItems
+[02:37:44] [Server thread/TRACE] [NotEnoughItems/NotEnoughItems]: Sent event FMLServerStoppedEvent to mod NotEnoughItems
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - NotEnoughItems took 0.001s
+[02:37:44] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sending event FMLServerStoppedEvent to mod CodeChickenCore
+[02:37:44] [Server thread/TRACE] [CodeChickenCore/CodeChickenCore]: Sent event FMLServerStoppedEvent to mod CodeChickenCore
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - CodeChicken Core took 0.002s
+[02:37:44] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sending event FMLServerStoppedEvent to mod ItemBlacklist
+[02:37:44] [Server thread/TRACE] [ItemBlacklist/ItemBlacklist]: Sent event FMLServerStoppedEvent to mod ItemBlacklist
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - ItemBlacklist took 0.016s
+[02:37:44] [Server thread/TRACE] [mcheli/mcheli]: Sending event FMLServerStoppedEvent to mod mcheli
+[02:37:44] [Server thread/TRACE] [mcheli/mcheli]: Sent event FMLServerStoppedEvent to mod mcheli
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - MC Helicopter Overdrive+ took 0.000s
+[02:37:44] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sending event FMLServerStoppedEvent to mod recipehandlerRC
+[02:37:44] [Server thread/TRACE] [recipehandlerRC/recipehandlerRC]: Sent event FMLServerStoppedEvent to mod recipehandlerRC
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Step: ServerStopped - NoMoreRecipeConflict took 0.000s
+[02:37:44] [Server thread/DEBUG] [FML/]: Bar Finished: ServerStopped took 0.020s
+[02:37:44] [Server thread/INFO] [FML/]: The state engine was in incorrect state ERRORED and forced into state SERVER_STOPPED. Errors may have been discarded.
+[02:37:44] [Server thread/INFO] [FML/]: The state engine was in incorrect state ERRORED and forced into state AVAILABLE. Errors may have been discarded.

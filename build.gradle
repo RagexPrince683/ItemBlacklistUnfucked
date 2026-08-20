@@ -4,6 +4,7 @@ plugins {
 
 version = modVersion
 group = modGroup
+
 base {
     archivesName = archiveBaseName
 }
@@ -11,9 +12,11 @@ base {
 def productionDevMods = fileTree('devmods') {
     include '*.jar'
 }
+
 def deobfDevMods = fileTree('devmods/deobf') {
     include '*.jar'
 }
+
 def remappedDevModsDirectory = file("$buildDir/devmods/remapped")
 
 configurations {
@@ -25,23 +28,41 @@ configurations {
 }
 
 dependencies {
+    /*
+     * Standard development dependencies.
+     *
+     * NEI requires CodeChickenCore.
+     * These dependencies are development-only.
+     * They are available to compilation and the Minecraft development runtime.
+     * They are not included in the release JAR or published as dependencies.
+     */
+    devOnlyNonPublishable("com.github.GTNewHorizons:CodeChickenCore:1.4.17:dev")
+    devOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.8.118-GTNH:dev")
+
     // Production (SRG-named) mods must be remapped before entering the MCP workspace.
     remappedDevMods rfg.deobf(productionDevMods)
 
     // These dependencies are intentionally development-only and are never published.
-    devOnlyNonPublishable fileTree(dir: remappedDevModsDirectory, include: '*.jar').builtBy('prepareDevMods')
+    devOnlyNonPublishable fileTree(
+            dir: remappedDevModsDirectory,
+            include: '*.jar'
+    ).builtBy('prepareDevMods')
+
+    // Already-deobfuscated development mods are loaded directly.
     devOnlyNonPublishable deobfDevMods
 }
 
 tasks.register('prepareDevMods', Sync) {
     description = 'Remaps production devmods into the MCP development namespace.'
     group = 'ide'
+
     from configurations.remappedDevMods
     into remappedDevModsDirectory
 }
 
 tasks.withType(JavaCompile).configureEach {
     dependsOn tasks.named('prepareDevMods')
+
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
     options.encoding = 'UTF-8'
