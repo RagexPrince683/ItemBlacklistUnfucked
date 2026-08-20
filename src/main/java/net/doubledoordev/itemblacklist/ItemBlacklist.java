@@ -10,6 +10,7 @@ import net.doubledoordev.itemblacklist.client.ClientEventHandlers;
 import net.doubledoordev.itemblacklist.client.Renderer;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
 import net.doubledoordev.itemblacklist.util.CommandBlockItem;
+import net.doubledoordev.itemblacklist.util.CommandBanList;
 import net.doubledoordev.itemblacklist.util.CommandUnpack;
 import net.doubledoordev.itemblacklist.util.ItemBlacklisted;
 import net.doubledoordev.itemblacklist.util.ServerEventHandlers;
@@ -30,6 +31,8 @@ public class ItemBlacklist
     public static String message;
     public static Logger logger;
     public static boolean log;
+    public static boolean publicBanListEnabled;
+    private static Configuration configuration;
     private boolean unpack4all;
 
     @Mod.EventHandler
@@ -46,12 +49,14 @@ public class ItemBlacklist
             MinecraftForgeClient.registerItemRenderer(ItemBlacklisted.I, new Renderer());
         }
 
-        Configuration configuration = new Configuration(event.getSuggestedConfigurationFile());
+        configuration = new Configuration(event.getSuggestedConfigurationFile());
 
         message = configuration.getString("message", CATEGORY_GENERAL, "This item is currently banned. If you have questions ask a administrator for further questions.", "The message you get when using an item that is banned.");
         log = configuration.getBoolean("log", CATEGORY_GENERAL, false, "Log every instance of any banned item used. (SPAM WARNING!)");
         //why the fuck?
         unpack4all = configuration.getBoolean("unpack4all", CATEGORY_GENERAL, false, "Let everyone unpack items by using the 'unpack' command. So items can be used in crafting.");
+        publicBanListEnabled = configuration.getBoolean("publicBanListEnabled", CATEGORY_GENERAL, true,
+                "Controls whether non-op players can use /banlist. Operators and the server console are always allowed.");
 
         if (configuration.hasChanged()) configuration.save();
     }
@@ -60,11 +65,19 @@ public class ItemBlacklist
     public void serverStarting(FMLServerStartingEvent event)
     {
         event.registerServerCommand(new CommandBlockItem());
+        event.registerServerCommand(new CommandBanList());
         if (unpack4all) event.registerServerCommand(new CommandUnpack());
         GlobalBanList.init();
 
         MinecraftForge.EVENT_BUS.register(ServerEventHandlers.I);
         FMLCommonHandler.instance().bus().register(ServerEventHandlers.I);
+    }
+
+    public static void setPublicBanListEnabled(boolean enabled)
+    {
+        publicBanListEnabled = enabled;
+        configuration.get(CATEGORY_GENERAL, "publicBanListEnabled", true).set(enabled);
+        configuration.save();
     }
 
     @Mod.EventHandler

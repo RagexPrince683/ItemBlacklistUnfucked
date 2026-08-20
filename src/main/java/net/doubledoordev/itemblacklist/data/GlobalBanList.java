@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -60,7 +61,7 @@ public class GlobalBanList
             ItemBlacklist.logger.warn("No config file present.");
         }
         worldInstance.file = file;
-        if (worldInstance.removeExpired(Instant.now()) > 0) worldInstance.save();
+        if (!worldInstance.removeExpired(Instant.now()).isEmpty()) worldInstance.save();
 
         file = new File(Loader.instance().getConfigDir(), MODID.concat(".json"));
         if (file.exists())
@@ -233,19 +234,24 @@ public class GlobalBanList
         save();
     }
 
-    public int removeExpired(Instant now)
+    public List<ExpiredBan> removeExpired(Instant now)
     {
-        int removed = global.removeExpired(now);
-        for (BanList banList : new HashSet<>(dimesionMap.values())) removed += banList.removeExpired(now);
+        List<ExpiredBan> removed = new ArrayList<>();
+        addExpired(removed, global, now);
+        for (BanList banList : new HashSet<>(dimesionMap.values())) addExpired(removed, banList, now);
         return removed;
     }
 
-    public static boolean cleanupExpiredWorldEntries()
+    private void addExpired(List<ExpiredBan> result, BanList list, Instant now)
     {
-        if (worldInstance == null) return false;
-        int removed = worldInstance.removeExpired(Instant.now());
-        if (removed > 0) worldInstance.save();
-        return removed > 0;
+        for (BanListEntry entry : list.removeExpired(now))
+            result.add(new ExpiredBan(entry, list.getDimension()));
+    }
+
+    public static List<ExpiredBan> cleanupExpiredWorldEntries()
+    {
+        if (worldInstance == null) return new ArrayList<>();
+        return worldInstance.removeExpired(Instant.now());
     }
 
     public boolean remove(String dimensions, BanListEntry banListEntry)

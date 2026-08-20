@@ -53,6 +53,33 @@ schedule must be the final command suffix. Repeating a scheduled ban updates
 its expiration rather than creating a duplicate, while `unban` and `unmeta`
 remove it immediately.
 
+When a timed world ban expires while the server is running, ItemBlacklist
+broadcasts the expired registry item, metadata (or `*`), and dimension scope to
+every online player. The deliberately precise message says that the timed ban
+expired; another world or pack rule may still ban the same item. Expirations
+cleaned up during startup or `/itemblacklist reload` are not broadcast.
+
+### `/banlist` (also `/itembanlist`)
+
+`/banlist` is a read-only view of all world and pack bans, including global and
+dimension-specific entries and scheduled expiration times. `/banlist 0` limits
+the view to dimension 0, while `/banlist __GLOBAL__` shows global entries. The
+command never changes blacklist state and does not require a held item.
+
+Public access is enabled by default. Operators and the server console can
+always use `/banlist`, even when public access is disabled. Operators can view
+or immediately change the persistent setting with:
+
+```text
+/itemblacklist publiclist
+/itemblacklist publiclist on
+/itemblacklist publiclist off
+```
+
+The setting is saved as `publicBanListEnabled` in the `general` category of
+`config/ItemBlacklist.cfg` and survives server restarts. The existing
+`/itemblacklist list` remains available to operators regardless of this setting.
+
 ### `/unpack`
 Lets anyone unpack there own inventory. Useful for items required in crafting. **Can be disabled in the config**
 

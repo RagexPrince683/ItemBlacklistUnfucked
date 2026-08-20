@@ -2,7 +2,6 @@ package net.doubledoordev.itemblacklist.util;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.doubledoordev.itemblacklist.Helper;
-import net.doubledoordev.itemblacklist.data.BanList;
 import net.doubledoordev.itemblacklist.data.BanListEntry;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
 import net.minecraft.command.CommandBase;
@@ -96,6 +95,7 @@ public class CommandBlockItem extends CommandBase
             sender.addChatMessage(makeHelpText("pack [player]", "Lock banned items in targets inventory."));
             sender.addChatMessage(makeHelpText("unpack [player]", "Unlock banned items in targets inventory."));
             sender.addChatMessage(makeHelpText("list [dim|player]", "List banned items of all, player, or dim"));
+            sender.addChatMessage(makeHelpText("publiclist [on|off]", "Controls non-op access to /banlist."));
             sender.addChatMessage(makeHelpText("ban [dim] [item] [timer <duration>|date <MM-dd-yyyy> <time>]", "Ban wildcard metadata; no schedule is permanent."));
             sender.addChatMessage(makeHelpText("meta [dim] [timer <duration>|date <MM-dd-yyyy> <time>]", "Ban the exact held metadata; no schedule is permanent."));
             sender.addChatMessage(makeHelpText("timers", "y years, d days, h hours, m minutes, s seconds (example: 1d12h)."));
@@ -116,6 +116,9 @@ public class CommandBlockItem extends CommandBase
                 sender.addChatMessage(new ChatComponentText("Reloaded!").setChatStyle(new ChatStyle().setColor(GREEN)));
             case "list":
                 list(sender, args);
+                break;
+            case "publiclist":
+                publicList(sender, args);
                 break;
             case "unpack":
                 unpack = true;
@@ -161,6 +164,24 @@ public class CommandBlockItem extends CommandBase
                 }
                 break;
         }
+    }
+
+    private void publicList(ICommandSender sender, String[] args)
+    {
+        if (args.length > 2) throw new WrongUsageException("/itemblacklist publiclist [on|off]");
+        if (args.length == 2)
+        {
+            boolean enabled;
+            if ("on".equalsIgnoreCase(args[1])) enabled = true;
+            else if ("off".equalsIgnoreCase(args[1])) enabled = false;
+            else throw new WrongUsageException("/itemblacklist publiclist [on|off]");
+            ItemBlacklist.setPublicBanListEnabled(enabled);
+            ItemBlacklist.logger.info("{} {} public ban list access.", sender.getCommandSenderName(),
+                    enabled ? "enabled" : "disabled");
+        }
+        sender.addChatMessage(new ChatComponentText("Public ban list access is "
+                + (ItemBlacklist.publicBanListEnabled ? "enabled." : "disabled."))
+                .setChatStyle(new ChatStyle().setColor(GREEN)));
     }
 
     private void changeHeldMetaBan(ICommandSender sender, String[] args, boolean remove, boolean allowSchedule)
@@ -371,58 +392,16 @@ public class CommandBlockItem extends CommandBase
         return new Pair<>(dimensions, banListEntry);
     }
 
-    private void list(ICommandSender sender, HashSet<BanList> set)
-    {
-        for (BanList list : set)
-        {
-            sender.addChatMessage(new ChatComponentText("Dimension " + list.getDimension()).setChatStyle(new ChatStyle().setColor(AQUA)));
-            for (BanListEntry entry : list.banListEntryMap.values())
-            {
-                String expiration = entry.isPermanent() ? "" : " [unbans "
-                        + DISPLAY_TIME.format(entry.getExpiresAt().atZone(ZoneId.systemDefault())) + "]";
-                sender.addChatMessage(new ChatComponentText(entry.toString() + expiration));
-            }
-        }
-    }
-
     private void list(ICommandSender sender, String[] args)
     {
-        HashSet<BanList> packSet = new HashSet<>();
-        HashSet<BanList> worldSet = new HashSet<>();
         if (args.length == 1)
         {
-            worldSet.addAll(GlobalBanList.worldInstance.dimesionMap.values());
-            worldSet.add(GlobalBanList.worldInstance.getGlobal());
-
-            if (GlobalBanList.packInstance != null)
-            {
-                packSet.addAll(GlobalBanList.packInstance.dimesionMap.values());
-                packSet.add(GlobalBanList.packInstance.getGlobal());
-            }
+            BanListDisplay.displayAll(sender);
         }
+        else if (args[1].equalsIgnoreCase(GlobalBanList.GLOBAL_NAME)) BanListDisplay.displayGlobal(sender);
         else
         {
-            if (args[1].equalsIgnoreCase(GlobalBanList.GLOBAL_NAME)) worldSet.add(GlobalBanList.worldInstance.getGlobal());
-            else worldSet.addAll(GlobalBanList.worldInstance.dimesionMap.get(getDimension(sender, args[1])));
-
-            if (GlobalBanList.packInstance != null)
-            {
-                if (args[1].equalsIgnoreCase(GlobalBanList.GLOBAL_NAME)) packSet.add(GlobalBanList.packInstance.getGlobal());
-                else packSet.addAll(GlobalBanList.packInstance.dimesionMap.get(getDimension(sender, args[1])));
-            }
-        }
-        if (worldSet.isEmpty()) sender.addChatMessage(new ChatComponentText("No world banned items.").setChatStyle(new ChatStyle().setColor(YELLOW)));
-        else
-        {
-            sender.addChatMessage(new ChatComponentText("World banned items:").setChatStyle(new ChatStyle().setColor(YELLOW)));
-            list(sender, worldSet);
-        }
-
-        if (packSet.isEmpty()) sender.addChatMessage(new ChatComponentText("No pack banned items. ").setChatStyle(new ChatStyle().setColor(YELLOW)).appendSibling(new ChatComponentText("[unchangeable]").setChatStyle(new ChatStyle().setColor(RED))));
-        else
-        {
-            sender.addChatMessage(new ChatComponentText("Pack banned items: ").setChatStyle(new ChatStyle().setColor(YELLOW)).appendSibling(new ChatComponentText("[unchangeable]").setChatStyle(new ChatStyle().setColor(RED))));
-            list(sender, packSet);
+            BanListDisplay.displayDimension(sender, getDimension(sender, args[1]));
         }
     }
 
@@ -447,7 +426,9 @@ public class CommandBlockItem extends CommandBase
     public List addTabCompletionOptions(ICommandSender sender, String[] args)
     {
         if (isUsernameIndex(args, args.length)) return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-        if (args.length == 1) return getListOfStringsMatchingLastWord(args, "reload", "pack", "unpack", "list", "ban", "meta", "unban", "unmeta");
+        if (args.length == 1) return getListOfStringsMatchingLastWord(args, "reload", "pack", "unpack", "list", "publiclist", "ban", "meta", "unban", "unmeta");
+        if (args[0].equalsIgnoreCase("publiclist") && args.length == 2)
+            return getListOfStringsMatchingLastWord(args, "on", "off");
         if (args[0].equalsIgnoreCase("ban") || args[0].equalsIgnoreCase("unban"))
         {
             //noinspection unchecked
