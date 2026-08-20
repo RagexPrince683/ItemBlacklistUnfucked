@@ -1,12 +1,14 @@
 # Changelog
 
-## PR: Block extraction of banned crafting results
+## PR: Enforce banned crafting results with a Forge coremod
 
 - Banned crafting results can no longer be extracted while a crafting GUI
   remains open.
 - Blocked results remain visible using the existing banned-item representation.
 - Crafting-result click prevention is server-authoritative, including direct
   window-click packets and every vanilla container click mode.
+- Banned crafting-result extraction is enforced through a small Forge 1.7.10
+  coremod hook.
 
 ## PR: Fix GTNH build configuration
 
