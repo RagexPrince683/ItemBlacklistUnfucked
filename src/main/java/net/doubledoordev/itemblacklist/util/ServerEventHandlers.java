@@ -7,16 +7,22 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import net.doubledoordev.itemblacklist.Helper;
 import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
+import net.doubledoordev.itemblacklist.data.ExpiredBan;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatStyle;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerOpenContainerEvent;
 import net.minecraftforge.event.world.BlockEvent;
+
+import java.util.List;
+
+import static net.minecraft.util.EnumChatFormatting.GREEN;
 
 /**
  * @author Dries007
@@ -37,9 +43,21 @@ public class ServerEventHandlers
     {
         if (event.phase != TickEvent.Phase.END || ++expirationTicks < 20) return;
         expirationTicks = 0;
-        if (!GlobalBanList.cleanupExpiredWorldEntries()) return;
+        List<ExpiredBan> expired = GlobalBanList.cleanupExpiredWorldEntries();
+        if (expired.isEmpty()) return;
 
+        GlobalBanList.worldInstance.save();
         refreshOnlinePlayers();
+        MinecraftServer server = MinecraftServer.getServer();
+        for (ExpiredBan ban : expired)
+        {
+            String scope = GlobalBanList.GLOBAL_NAME.equals(ban.getDimensions())
+                    ? "globally." : "in dimension " + ban.getDimensions() + ".";
+            String message = "[ItemBlacklist] Timed ban expired for " + ban.getEntry() + " " + scope;
+            server.getConfigurationManager().sendChatMsg(new ChatComponentText(message)
+                    .setChatStyle(new ChatStyle().setColor(GREEN)));
+            ItemBlacklist.logger.info(message);
+        }
     }
 
     public static void refreshOnlinePlayers()

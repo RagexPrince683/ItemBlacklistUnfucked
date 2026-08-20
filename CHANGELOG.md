@@ -1,5 +1,15 @@
 # Changelog
 
+## PR: Broadcast timed expirations and add a configurable public ban list
+
+- Broadcast each runtime timed world-ban expiration with its registry item,
+  metadata, and global or dimension scope while keeping startup/reload cleanup
+  silent.
+- Added the read-only `/banlist [dimension|__GLOBAL__]` command with shared
+  world/pack list rendering and timed-expiration details.
+- Added the op-only `/itemblacklist publiclist [on|off]` toggle, defaulting to
+  enabled and persisted in the normal Forge configuration.
+
 ## PR: Add timed and scheduled item unbans
 
 - Added optional `timer <duration>` and `date <MM-dd-yyyy> <time>` suffixes to

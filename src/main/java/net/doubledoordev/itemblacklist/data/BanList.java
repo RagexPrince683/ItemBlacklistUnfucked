@@ -9,7 +9,9 @@ import net.minecraft.item.ItemStack;
 
 import java.lang.reflect.Type;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Dries007
@@ -38,16 +40,17 @@ public class BanList
         return false;
     }
 
-    public int removeExpired(Instant now)
+    public List<BanListEntry> removeExpired(Instant now)
     {
-        int removed = 0;
+        List<BanListEntry> removed = new ArrayList<>();
         Iterator<BanListEntry> iterator = banListEntryMap.values().iterator();
         while (iterator.hasNext())
         {
-            if (iterator.next().isExpired(now))
+            BanListEntry entry = iterator.next();
+            if (entry.isExpired(now))
             {
                 iterator.remove();
-                removed++;
+                removed.add(entry);
             }
         }
         return removed;
