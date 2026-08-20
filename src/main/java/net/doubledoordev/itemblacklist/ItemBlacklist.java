@@ -71,6 +71,6 @@ public class ItemBlacklist
     public void serverStopped(FMLServerStoppedEvent event)
     {
         MinecraftForge.EVENT_BUS.unregister(ServerEventHandlers.I);
-        FMLCommonHandler.instance().bus().register(ServerEventHandlers.I);
+        FMLCommonHandler.instance().bus().unregister(ServerEventHandlers.I);
     }
 }

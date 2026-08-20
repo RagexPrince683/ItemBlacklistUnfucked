@@ -1,5 +1,15 @@
 # Changelog
 
+## PR: Add timed and scheduled item unbans
+
+- Added optional `timer <duration>` and `date <MM-dd-yyyy> <time>` suffixes to
+  world `ban` and `meta`, including rescheduling and conversion to permanent.
+- Persisted UTC expirations as optional `expiresAt` entry properties while
+  retaining permanent-entry and legacy `damage` JSON compatibility.
+- Added server wall-clock matching, one-second server-thread cleanup,
+  restart/reload cleanup, and immediate online inventory/container refreshes.
+- Documented scheduling units, syntax, time-zone behavior, and persistence.
+
 ## PR: Add held-item metadata ban commands and canonical JSON metadata
 
 - Added `/itemblacklist meta` and `/itemblacklist unmeta` to create and remove

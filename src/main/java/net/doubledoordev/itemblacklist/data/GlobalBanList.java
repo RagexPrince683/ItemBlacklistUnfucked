@@ -19,6 +19,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -59,6 +60,7 @@ public class GlobalBanList
             ItemBlacklist.logger.warn("No config file present.");
         }
         worldInstance.file = file;
+        if (worldInstance.removeExpired(Instant.now()) > 0) worldInstance.save();
 
         file = new File(Loader.instance().getConfigDir(), MODID.concat(".json"));
         if (file.exists())
@@ -212,9 +214,38 @@ public class GlobalBanList
                 dimesionMap.put(i, match);
             }
         }
-        if (match.banListEntryMap.containsEntry(banListEntry.getItem(), banListEntry)) throw new IllegalArgumentException("Duplicate ban list entry.");
+        BanListEntry existing = null;
+        for (BanListEntry candidate : match.banListEntryMap.get(banListEntry.getItem()))
+        {
+            if (candidate.equals(banListEntry))
+            {
+                existing = candidate;
+                break;
+            }
+        }
+        if (existing != null)
+        {
+            existing.setExpiresAt(banListEntry.getExpiresAt());
+            save();
+            return;
+        }
         match.banListEntryMap.put(banListEntry.getItem(), banListEntry);
         save();
+    }
+
+    public int removeExpired(Instant now)
+    {
+        int removed = global.removeExpired(now);
+        for (BanList banList : new HashSet<>(dimesionMap.values())) removed += banList.removeExpired(now);
+        return removed;
+    }
+
+    public static boolean cleanupExpiredWorldEntries()
+    {
+        if (worldInstance == null) return false;
+        int removed = worldInstance.removeExpired(Instant.now());
+        if (removed > 0) worldInstance.save();
+        return removed > 0;
     }
 
     public boolean remove(String dimensions, BanListEntry banListEntry)

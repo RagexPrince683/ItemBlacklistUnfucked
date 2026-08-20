@@ -3,11 +3,13 @@ package net.doubledoordev.itemblacklist.util;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import net.doubledoordev.itemblacklist.Helper;
 import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.util.BlockSnapshot;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
@@ -26,6 +28,37 @@ public class ServerEventHandlers
     private ServerEventHandlers()
     {
 
+    }
+
+    private int expirationTicks;
+
+    @SubscribeEvent
+    public void serverTick(TickEvent.ServerTickEvent event)
+    {
+        if (event.phase != TickEvent.Phase.END || ++expirationTicks < 20) return;
+        expirationTicks = 0;
+        if (!GlobalBanList.cleanupExpiredWorldEntries()) return;
+
+        refreshOnlinePlayers();
+    }
+
+    public static void refreshOnlinePlayers()
+    {
+        MinecraftServer server = MinecraftServer.getServer();
+        for (Object onlinePlayer : server.getConfigurationManager().playerEntityList)
+        {
+            EntityPlayer player = (EntityPlayer) onlinePlayer;
+            if (!Helper.shouldCare(player)) continue;
+            GlobalBanList.process(player.dimension, player.inventory);
+            if (player.openContainer != null)
+            {
+                GlobalBanList.process(player.dimension, player.openContainer, player);
+                CraftingResultHandler.updateCraftingResults(player, player.openContainer);
+                player.openContainer.detectAndSendChanges();
+            }
+            player.inventory.markDirty();
+            player.inventoryContainer.detectAndSendChanges();
+        }
     }
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
