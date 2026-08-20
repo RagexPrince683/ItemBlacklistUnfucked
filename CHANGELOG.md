@@ -1,5 +1,11 @@
 # Changelog
 
+## PR: Show the banned-item message for crafting clicks
+
+- Display the configured banned-item message when a player attempts to take a
+  banned crafting result.
+- Document the crafting-click feedback and its configuration source.
+
 ## PR: Fix GTNH coremod class resolution
 
 - Made the configured coremod class relative to `modGroup`, allowing the GTNH
