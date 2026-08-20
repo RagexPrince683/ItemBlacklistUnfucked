@@ -2,6 +2,7 @@ package net.doubledoordev.itemblacklist.util;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.doubledoordev.itemblacklist.Helper;
+import net.doubledoordev.itemblacklist.ItemBlacklist;
 import net.doubledoordev.itemblacklist.data.BanListEntry;
 import net.doubledoordev.itemblacklist.data.GlobalBanList;
 import net.minecraft.command.CommandBase;

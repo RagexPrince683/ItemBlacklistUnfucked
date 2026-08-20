@@ -34,6 +34,12 @@ public class CommandBanList extends CommandBase
         return 0;
     }
 
+    //didn't add the fucking boolean to let non ops use it award
+    public boolean canCommandSenderUseCommand(ICommandSender sender)
+    {
+        return true;
+    }
+
     @Override
     public String getCommandUsage(ICommandSender sender)
     {
