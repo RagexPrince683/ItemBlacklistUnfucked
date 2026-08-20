@@ -26,6 +26,14 @@ included in release JARs or published dependencies.
 ### `/blockitem` (also `/itemblacklist` or `/blacklist`)
 The main command, it has an ingame help. (`/blockitem help`)
 
+When no item is named, `/itemblacklist ban` bans the held registry item across
+all metadata variants. `/itemblacklist meta` instead bans only the exact
+metadata value of the held stack, and `/itemblacklist unmeta` removes that exact
+held-item ban. All three commands default to the player's current dimension and
+accept the existing dimension list/range syntax or `__GLOBAL__` (for example,
+`/itemblacklist meta __GLOBAL__`). Explicit bans such as
+`/itemblacklist ban minecraft:dye:15` remain supported.
+
 ### `/unpack`
 Lets anyone unpack there own inventory. Useful for items required in crafting. **Can be disabled in the config**
 
@@ -57,22 +65,29 @@ Example format:
 {
   "__GLOBAL__": [
     {
-      "item": "minecraft:wool",
-      "damage": "1"
+      "item": "minecraft:dye",
+      "meta": 15
     }
   ],
   "0": [
     {
-      "item": "minecraft:wool",
-      "damage": "*"
+      "item": "minecraft:dye",
+      "meta": "*"
     }
   ]
 }
 ```
 
 This file means that:
-Wool with damage 1 (orange wool) is banned everywhere.
-Wool with any damage (any color) is banned in the overworld (dim 0)
+Bonemeal is `minecraft:dye` metadata `15` in Minecraft 1.7.10, so this bans
+bonemeal everywhere without banning other dye variants. All dye metadata
+variants are banned in the overworld (dimension 0).
+
+`meta` is the canonical metadata property and may be either an integer or `"*"`
+for all metadata variants. Legacy JSON entries using `damage` remain readable;
+entries with neither property default to `"*"`. If a file is rewritten, entries
+are saved with `meta`. Metadata is not NBT, and item names remain Forge registry
+IDs rather than numeric IDs.
 
 ### Ranges / Multiple dimensions
 
